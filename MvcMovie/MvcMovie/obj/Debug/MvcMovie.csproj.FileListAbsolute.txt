@@ -28,3 +28,7 @@ C:\Users\advaghela\Desktop\GitHub\GitASPMVC\MvcMovie\MvcMovie\bin\EntityFramewor
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\MvcMovie\MvcMovie\bin\EntityFramework.SqlServer.dll
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\MvcMovie\MvcMovie\bin\EntityFramework.xml
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\MvcMovie\MvcMovie\bin\EntityFramework.SqlServer.xml
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.Initial.resources
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csproj.GenerateResource.Cache
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.rating.resources
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\MvcMovie\MvcMovie\obj\Debug\MvcMovie.Migrations.DataAnnotations.resources
