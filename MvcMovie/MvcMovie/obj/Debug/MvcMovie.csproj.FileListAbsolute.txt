@@ -31,3 +31,4 @@ C:\Users\advaghela\Desktop\GitHub\GitASPMVC\MvcMovie\MvcMovie\obj\Debug\MvcMovie
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csproj.GenerateResource.Cache
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\MvcMovie\MvcMovie\obj\Debug\MvcMovie.dll
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\MvcMovie\MvcMovie\obj\Debug\MvcMovie.pdb
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\MvcMovie\MvcMovie\obj\Debug\MvcMovie.csprojResolveAssemblyReference.cache
