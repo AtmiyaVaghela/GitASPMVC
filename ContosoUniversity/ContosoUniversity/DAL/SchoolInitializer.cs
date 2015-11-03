@@ -4,12 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ContosoUniversity.DAL
-{
-    public class SchoolInitializer : System.Data.Entity. DropCreateDatabaseIfModelChanges<SchoolContext>
-    {
-        protected override void Seed(SchoolContext context)
-        {
+namespace ContosoUniversity.DAL {
+    public class SchoolInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<SchoolContext> {
+        protected override void Seed(SchoolContext context) {
             var students = new List<Student>
             {
             new Student{FirstMidName="Carson",LastName="Alexander",EnrollmentDate=DateTime.Parse("2005-09-01")},
@@ -55,6 +52,6 @@ namespace ContosoUniversity.DAL
             };
             enrollments.ForEach(s => context.Enrollments.Add(s));
             context.SaveChanges();
-        }        
+        }
     }
 }

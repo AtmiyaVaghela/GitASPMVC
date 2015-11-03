@@ -39,8 +39,7 @@
                     <td>Course Title</td>
                     <td>Grade</td>
                 </tr>
-                @foreach (var item in Model.Enrollments)
-                {
+                @foreach (var item in Model.Enrollments) {
                     <tr>
                         <td>@Html.DisplayFor(m => item.Course.Title)</td>
                         <td>@Html.DisplayFor(m => item.Grade)</td>
