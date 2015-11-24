@@ -28,3 +28,7 @@ C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\bin\EntityFramework.SqlServer.dll
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\bin\EntityFramework.xml
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\bin\EntityFramework.SqlServer.xml
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\bin\PagedList.dll
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\bin\PagedList.Mvc.dll
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\bin\PagedList.xml
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\bin\PagedList.Mvc.xml
