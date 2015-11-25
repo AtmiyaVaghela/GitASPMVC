@@ -38,3 +38,4 @@ C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.InitialCreate2.resources
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.MaxLengthOnNames.resources
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.ColumnFirstName.resources
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.ComplexDataModel.resources
