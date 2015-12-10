@@ -7,6 +7,7 @@ using ContosoUniversity.Models;
 using ContosoUniversity.ViewModels;
 using System.Data.Entity.Infrastructure;
 using System.Collections.Generic;
+using System;
 
 namespace ContosoUniversity.Controllers
 {
@@ -69,7 +70,9 @@ namespace ContosoUniversity.Controllers
         // GET: Instructor/Create
         public ActionResult Create()
         {
-            ViewBag.ID = new SelectList(db.OfficeAssignments, "InstructorID", "Location");
+            var instructor = new Instructor();
+            instructor.Courses = new List<Course>();
+            PopulateAssignedCourseData(instructor);
             return View();
         }
 
@@ -78,8 +81,18 @@ namespace ContosoUniversity.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,LastName,FirstMidName,HireDate")] Instructor instructor)
+        public ActionResult Create([Bind(Include = "LastName,FirstMidName,HireDate,OfficeAssignment")] Instructor instructor, string[] selectedCourses)
         {
+            if (selectedCourses != null)
+            {
+                instructor.Courses = new List<Course>();
+                foreach (var course in selectedCourses)
+                {
+                    var courseToAdd = db.Courses.Find(int.Parse(course));
+                    instructor.Courses.Add(courseToAdd);
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 db.Instructors.Add(instructor);
@@ -87,7 +100,7 @@ namespace ContosoUniversity.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID = new SelectList(db.OfficeAssignments, "InstructorID", "Location", instructor.ID);
+            PopulateAssignedCourseData(instructor);
             return View(instructor);
         }
 
@@ -98,6 +111,7 @@ namespace ContosoUniversity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Instructor instructor = db.Instructors
                 .Include(i => i.OfficeAssignment)
                 .Include(i => i.Courses)
@@ -122,13 +136,9 @@ namespace ContosoUniversity.Controllers
             var viewModel = new List<AssignedCourseData>();
             foreach (var course in allCourses)
             {
-                viewModel.Add(new AssignedCourseData
-                {
-                    CourseID = course.CourseID,
-                    Title = course.Title,
-                    Assigned = instructorCourses.Contains(course.CourseID)
-                });
+                viewModel.Add(new AssignedCourseData { CourseID = course.CourseID, Title = course.Title, Assigned = instructorCourses.Contains(course.CourseID) });
             }
+            ViewBag.Courses = viewModel;
         }
 
         // POST: Instructor/Edit/5
@@ -184,6 +194,7 @@ namespace ContosoUniversity.Controllers
 
             var selectedCoursesHS = new HashSet<string>(selectedCourses);
             var instructorCourses = new HashSet<int>(instructorToUpdate.Courses.Select(c => c.CourseID));
+
             foreach (var course in db.Courses)
             {
                 if (selectedCoursesHS.Contains(course.CourseID.ToString()))
@@ -223,8 +234,22 @@ namespace ContosoUniversity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Instructor instructor = db.Instructors.Find(id);
+            Instructor instructor = db.Instructors
+                .Include(i => i.OfficeAssignment)
+                .Where(i => i.ID == id)
+                .Single();
+
             db.Instructors.Remove(instructor);
+
+            var department = db.Departments
+                .Where(d => d.InstructorID == id)
+                .SingleOrDefault();
+
+            if (department != null)
+            {
+                department.InstructorID = null;
+            }
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }
