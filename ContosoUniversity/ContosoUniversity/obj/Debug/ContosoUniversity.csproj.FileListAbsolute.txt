@@ -39,3 +39,6 @@ C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.MaxLengthOnNames.resources
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.ColumnFirstName.resources
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.ComplexDataModel.resources
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.DepartmentSP.resources
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.rowversion.resources
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.inheritance.resources
