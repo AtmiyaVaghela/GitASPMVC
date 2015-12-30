@@ -1,0 +1,9 @@
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversityData\ContosoUniversityData\bin\Debug\ContosoUniversityData.dacpac
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversityData\ContosoUniversityData\bin\Debug\ContosoUniversityData.dll
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversityData\ContosoUniversityData\bin\Debug\ContosoUniversityData.pdb
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversityData\ContosoUniversityData\obj\Debug\Model.xml
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversityData\ContosoUniversityData\obj\Debug\refactor.xml
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversityData\ContosoUniversityData\obj\Debug\postdeploy.sql
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversityData\ContosoUniversityData\obj\Debug\predeploy.sql
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversityData\ContosoUniversityData\obj\Debug\ContosoUniversityData.dll
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\ContosoUniversityData\ContosoUniversityData\obj\Debug\ContosoUniversityData.pdb
