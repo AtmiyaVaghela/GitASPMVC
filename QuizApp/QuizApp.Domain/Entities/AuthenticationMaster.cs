@@ -15,5 +15,6 @@ namespace QuizApp.Domain.Entities
 
         [Required(ErrorMessage="Please enter Password.")]
         public string Password { get; set; }
+
     }
 }
