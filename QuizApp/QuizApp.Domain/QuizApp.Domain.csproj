@@ -45,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -76,9 +77,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Entities\AnswerGiven.cs" />
     <Compile Include="Entities\AuthenticationMaster.cs" />
+    <Compile Include="Entities\QuizGenerated.cs" />
+    <Compile Include="Entities\QuizMaster.cs" />
+    <Compile Include="Entities\ResultMaster.cs" />
     <Compile Include="Entities\TimeLine.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Migrations\201601120935356_initialCreate.cs" />
+    <Compile Include="Migrations\201601120935356_initialCreate.Designer.cs">
+      <DependentUpon>201601120935356_initialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601130334500_m1.cs" />
+    <Compile Include="Migrations\201601130334500_m1.Designer.cs">
+      <DependentUpon>201601130334500_m1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,7 +102,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601120935356_initialCreate.resx">
+      <DependentUpon>201601120935356_initialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601130334500_m1.resx">
+      <DependentUpon>201601130334500_m1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

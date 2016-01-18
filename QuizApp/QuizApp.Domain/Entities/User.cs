@@ -30,7 +30,5 @@ namespace QuizApp.Domain.Entities
         public string Role { get; set; }
 
         public bool Deleted { get; set; }
-
-        public virtual AuthenticationMaster Authentication { get; set; }
     }
 }
