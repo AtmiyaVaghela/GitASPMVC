@@ -77,7 +77,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Concrete\EFUserRepository.cs" />
     <Compile Include="Entities\AnswerGiven.cs" />
     <Compile Include="Entities\AnswerMaster.cs" />
     <Compile Include="Entities\AuthenticationMaster.cs" />
@@ -109,6 +111,10 @@
     <Compile Include="Migrations\201601180551548_M4.Designer.cs">
       <DependentUpon>201601180551548_M4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601180632441_M5.cs" />
+    <Compile Include="Migrations\201601180632441_M5.Designer.cs">
+      <DependentUpon>201601180632441_M5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -116,9 +122,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstract\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201601120935356_initialCreate.resx">
       <DependentUpon>201601120935356_initialCreate.cs</DependentUpon>
@@ -134,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601180551548_M4.resx">
       <DependentUpon>201601180551548_M4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601180632441_M5.resx">
+      <DependentUpon>201601180632441_M5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

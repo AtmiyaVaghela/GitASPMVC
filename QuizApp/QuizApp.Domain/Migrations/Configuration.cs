@@ -29,10 +29,10 @@ namespace QuizApp.Domain.Migrations
             //    );
             //
 
-            //dbContext.User.AddOrUpdate(
-            //    u => u.UserName,
-            //    new User { UserName = "advaghela", FullName = "Atmiya Vaghela", EmailID = "atmiya@live.com", Role = "SU" }
-            //    );
+            dbContext.User.AddOrUpdate(
+                u => u.UserName,
+                new User { ID = new Guid(), UserName = "advaghela", FullName = "Atmiya Vaghela", EmailID = "atmiya@live.com", Role = "SU" }
+                );
         }
     }
 }

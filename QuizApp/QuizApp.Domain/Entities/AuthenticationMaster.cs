@@ -12,9 +12,9 @@ namespace QuizApp.Domain.Entities
         [Required(ErrorMessage = "Please enter Password.")]
         public string Password { get; set; }
 
-        [Required,ForeignKey("User")]
+        //[Required,ForeignKey("User")]
         public Guid UserID { get; set; }        
 
-        public virtual User User { get; set; }
+        //public virtual User User { get; set; }
     }
 }
