@@ -79,10 +79,14 @@
   <ItemGroup>
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Entities\AnswerGiven.cs" />
+    <Compile Include="Entities\AnswerMaster.cs" />
     <Compile Include="Entities\AuthenticationMaster.cs" />
+    <Compile Include="Entities\QuestionMaster.cs" />
     <Compile Include="Entities\QuizGenerated.cs" />
     <Compile Include="Entities\QuizMaster.cs" />
     <Compile Include="Entities\ResultMaster.cs" />
+    <Compile Include="Entities\SubjectChild.cs" />
+    <Compile Include="Entities\SubjectMaster.cs" />
     <Compile Include="Entities\TimeLine.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Migrations\201601120935356_initialCreate.cs" />
@@ -92,6 +96,18 @@
     <Compile Include="Migrations\201601130334500_m1.cs" />
     <Compile Include="Migrations\201601130334500_m1.Designer.cs">
       <DependentUpon>201601130334500_m1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601180528087_M2.cs" />
+    <Compile Include="Migrations\201601180528087_M2.Designer.cs">
+      <DependentUpon>201601180528087_M2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601180543130_M3.cs" />
+    <Compile Include="Migrations\201601180543130_M3.Designer.cs">
+      <DependentUpon>201601180543130_M3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601180551548_M4.cs" />
+    <Compile Include="Migrations\201601180551548_M4.Designer.cs">
+      <DependentUpon>201601180551548_M4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,6 +125,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601130334500_m1.resx">
       <DependentUpon>201601130334500_m1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601180528087_M2.resx">
+      <DependentUpon>201601180528087_M2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601180543130_M3.resx">
+      <DependentUpon>201601180543130_M3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601180551548_M4.resx">
+      <DependentUpon>201601180551548_M4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,7 +14,7 @@ namespace QuizApp.Domain.Entities
         [Key]
         public int ID { get; set; }
 
-        [ForeignKey("QuizMaster")]
+        //[ForeignKey("QuizMaster")]
         public int QuizMasterId { get; set; }
      
         [DefaultValue(0)]
@@ -23,6 +23,6 @@ namespace QuizApp.Domain.Entities
         [DefaultValue(0)]
         public int Result { get; set; }
 
-        public virtual IEnumerable<QuizMaster> QuizMaster { get; set; }
+        //public virtual IEnumerable<QuizMaster> QuizMaster { get; set; }
     }
 }

@@ -13,11 +13,11 @@ namespace QuizApp.Domain.Entities
         [Key]
         public int ID { get; set; }
 
-        [ForeignKey("QuizGenerated")]
+        //[ForeignKey("QuizGenerated")]
         public int QuizGeneratedID { get; set; }
       
         public string Answer { get; set; }
 
-        public virtual IEnumerable<QuizGenerated> QuizGenerated { get; set; }
+        //public virtual IEnumerable<QuizGenerated> QuizGenerated { get; set; }
     }
 }

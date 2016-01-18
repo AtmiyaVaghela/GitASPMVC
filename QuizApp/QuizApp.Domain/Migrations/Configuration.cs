@@ -1,5 +1,6 @@
 namespace QuizApp.Domain.Migrations
 {
+    using QuizApp.Domain.Entities;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -13,7 +14,7 @@ namespace QuizApp.Domain.Migrations
             ContextKey = "QuizApp.Domain.Concrete.EFDbContext";
         }
 
-        protected override void Seed(QuizApp.Domain.Concrete.EFDbContext context)
+        protected override void Seed(QuizApp.Domain.Concrete.EFDbContext dbContext)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -27,6 +28,11 @@ namespace QuizApp.Domain.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            //dbContext.User.AddOrUpdate(
+            //    u => u.UserName,
+            //    new User { UserName = "advaghela", FullName = "Atmiya Vaghela", EmailID = "atmiya@live.com", Role = "SU" }
+            //    );
         }
     }
 }

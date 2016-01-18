@@ -20,7 +20,7 @@ namespace QuizApp.Domain.Entities
         [Required]
         public int ChapterID { get; set; }
 
-        [Required, ForeignKey("User")]
+        //[Required, ForeignKey("Users")]
         public int UserID { get; set; }
    
         public DateTime ExpireDate { get; set; }
@@ -35,8 +35,8 @@ namespace QuizApp.Domain.Entities
 
         public int MinResult { get; set; }
 
-        public virtual IEnumerable<User> Users { get; set; }
-        public virtual IEnumerable<QuizGenerated> QuizGenerated { get; set; }
+        ////public virtual IEnumerable<User> Users { get; set; }
+        //public virtual IEnumerable<QuizGenerated> QuizGenerated { get; set; }
         public virtual IEnumerable<ResultMaster> Results { get; set; }
     }
 }
