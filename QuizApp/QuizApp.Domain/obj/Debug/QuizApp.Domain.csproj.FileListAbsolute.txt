@@ -21,10 +21,6 @@ C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.Domain\bin\Debug\Sys
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.Domain\obj\Debug\QuizApp.Domain.csprojResolveAssemblyReference.cache
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.Domain\obj\Debug\QuizApp.Domain.dll
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.Domain\obj\Debug\QuizApp.Domain.pdb
-C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.Domain\obj\Debug\QuizApp.Domain.Migrations.initialCreate.resources
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.Domain\obj\Debug\QuizApp.Domain.Migrations.M1.resources
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.Domain\obj\Debug\QuizApp.Domain.csproj.GenerateResource.Cache
-C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.Domain\obj\Debug\QuizApp.Domain.Migrations.m1.resources
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.Domain\obj\Debug\QuizApp.Domain.Migrations.M2.resources
-C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.Domain\obj\Debug\QuizApp.Domain.Migrations.M3.resources
-C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.Domain\obj\Debug\QuizApp.Domain.Migrations.M4.resources
-C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.Domain\obj\Debug\QuizApp.Domain.Migrations.M5.resources

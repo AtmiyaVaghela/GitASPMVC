@@ -10,7 +10,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace QuizApp.Domain.Concrete
 {
-    class EFDbContext : DbContext
+    public class EFDbContext : DbContext
     {
         public DbSet<User> User { get; set; }
         public DbSet<AuthenticationMaster> AuthenticationMaster { get; set; }

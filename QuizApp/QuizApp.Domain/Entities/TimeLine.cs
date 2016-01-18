@@ -10,13 +10,11 @@ namespace QuizApp.Domain.Entities
     public class TimeLine
     {
         public string CreatedBy { get; set; }
-
-        [DataType(DataType.DateTime)]
-        public DateTime CreatedDate { get; set; }
+                
+        public DateTime? CreatedDate { get; set; }
 
         public string UpdatedBy { get; set; }
-
-        [DataType(DataType.DateTime)]
-        public DateTime UpdatedDate { get; set; }
+                
+        public DateTime? UpdatedDate { get; set; }
     }
 }
