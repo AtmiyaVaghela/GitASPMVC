@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using QuizApp.Domain.Concrete;
 using QuizApp.Domain.Entities;
@@ -20,7 +16,7 @@ namespace QuizApp.WebUI.Controllers
 
         public UsersController(IUserRepository userRepository)
         {
-            repository = userRepository;
+            this.repository = userRepository;
         }
 
         // GET: Users

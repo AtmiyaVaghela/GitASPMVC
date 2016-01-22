@@ -22,3 +22,10 @@ C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.WebUI\obj\Debug\Quiz
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.WebUI\obj\Debug\QuizApp.WebUI.pdb
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.WebUI\bin\QuizApp.Domain.dll
 C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.WebUI\bin\QuizApp.Domain.pdb
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.WebUI\bin\Ninject.dll
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.WebUI\bin\Ninject.xml
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.WebUI\bin\Ninject.Web.Common.dll
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.WebUI\bin\Ninject.Web.Common.xml
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.WebUI\bin\Ninject.Web.Mvc.dll
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.WebUI\bin\WebActivatorEx.dll
+C:\Users\advaghela\Desktop\GitHub\GitASPMVC\QuizApp\QuizApp.WebUI\bin\Ninject.Web.Mvc.xml
