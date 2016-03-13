@@ -1,0 +1,6 @@
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloService\HelloService\bin\Debug\HelloService.dll.config
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloService\HelloService\bin\Debug\HelloService.dll
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloService\HelloService\bin\Debug\HelloService.pdb
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloService\HelloService\obj\Debug\HelloService.csprojResolveAssemblyReference.cache
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloService\HelloService\obj\Debug\HelloService.dll
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloService\HelloService\obj\Debug\HelloService.pdb

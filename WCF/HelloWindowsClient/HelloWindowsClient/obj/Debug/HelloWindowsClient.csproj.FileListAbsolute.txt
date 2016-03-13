@@ -1,0 +1,9 @@
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloWindowsClient\HelloWindowsClient\bin\Debug\HelloWindowsClient.exe.config
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloWindowsClient\HelloWindowsClient\bin\Debug\HelloWindowsClient.exe
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloWindowsClient\HelloWindowsClient\bin\Debug\HelloWindowsClient.pdb
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloWindowsClient\HelloWindowsClient\obj\Debug\HelloWindowsClient.csprojResolveAssemblyReference.cache
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloWindowsClient\HelloWindowsClient\obj\Debug\HelloWindowsClient.Form1.resources
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloWindowsClient\HelloWindowsClient\obj\Debug\HelloWindowsClient.Properties.Resources.resources
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloWindowsClient\HelloWindowsClient\obj\Debug\HelloWindowsClient.csproj.GenerateResource.Cache
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloWindowsClient\HelloWindowsClient\obj\Debug\HelloWindowsClient.exe
+C:\Users\Add\Desktop\GitASPMVC\WCF\HelloWindowsClient\HelloWindowsClient\obj\Debug\HelloWindowsClient.pdb
