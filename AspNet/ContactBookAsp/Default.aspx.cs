@@ -98,6 +98,15 @@ public partial class _Default : System.Web.UI.Page
 
         ViewState["dt"] = dt;
 
+        if (dt.Rows.Count > 0)
+        {
+            btnSave.Visible = true;
+        }
+        else
+        {
+            btnSave.Visible = false;
+        }
+
         BindGv();
     }
 
@@ -204,15 +213,57 @@ public partial class _Default : System.Web.UI.Page
 
             using (SqlConnection con = new SqlConnection(cs))
             {
+                int i = 0;
+                Guid fId = Guid.NewGuid();
+           
                 foreach (DataRow item in dt.Rows)
                 {
-                    string insertInto = @
+                    string insertInto = @"insert into UserMaster (FID,PID,FirstName,MiddleName,LastName,ContactNo,Address,City,NativeAddress,
+Email,Reference,Bdate,Exdate,Education,Occupation,Designation,CompanyName,WorkAddress,UID) 
+                    values (@FID,@PID,@FirstName,@MiddleName,@LastName,@ContactNo,@Address,@City,@NativeAddress,
+@Email,@Reference,@Bdate,@Exdate,@Education,@Occupation,@Designation,@CompanyName,@WorkAddress,@UID)";
+                    SqlCommand cmd = new SqlCommand(insertInto, con);
+
+                    cmd.Parameters.AddWithValue("@FID", fId);
+                    cmd.Parameters.AddWithValue("@PID", Guid.NewGuid());
+                    cmd.Parameters.AddWithValue("@FirstName", Convert.ToString(item["FirstName"]));
+                    cmd.Parameters.AddWithValue("@MiddleName", Convert.ToString(item["MiddleName"]));
+                    cmd.Parameters.AddWithValue("@LastName", Convert.ToString(item["LastName"]));
+                    cmd.Parameters.AddWithValue("@ContactNo", Convert.ToString(item["ContactNo"]));
+                    cmd.Parameters.AddWithValue("@Address", Convert.ToString(item["Address"]));
+                    cmd.Parameters.AddWithValue("@City", Convert.ToString(item["City"]));
+                    cmd.Parameters.AddWithValue("@NativeAddress", Convert.ToString(item["NativeAddress"]));
+                    cmd.Parameters.AddWithValue("@Email", Convert.ToString(item["Email"]));
+                    cmd.Parameters.AddWithValue("@Reference", Convert.ToString(item["Reference"]));
+                    cmd.Parameters.AddWithValue("@Bdate", Convert.ToString(item["Bdate"]));
+                    cmd.Parameters.AddWithValue("@Exdate", Convert.ToString(item["Exdate"]));
+                    cmd.Parameters.AddWithValue("@Education", Convert.ToString(item["Education"]));
+                    cmd.Parameters.AddWithValue("@Occupation", Convert.ToString(item["Occupation"]));
+                    cmd.Parameters.AddWithValue("@Designation", Convert.ToString(item["Designation"]));
+                    cmd.Parameters.AddWithValue("@CompanyName", Convert.ToString(item["CompanyName"]));
+                    cmd.Parameters.AddWithValue("@WorkAddress", Convert.ToString(item["WorkAddress"]));
+                    cmd.Parameters.AddWithValue("@UID", i++);
+                    try
+                    {
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
                 }
             }
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw;
+            throw ex;
         }
+
+        Response.Redirect("List.aspx");
     }
 }
