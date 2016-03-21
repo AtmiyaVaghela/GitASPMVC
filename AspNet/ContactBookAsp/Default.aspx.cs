@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Data.SqlClient;
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -13,6 +15,14 @@ public partial class _Default : System.Web.UI.Page
         if (!IsPostBack)
         {
 
+        }
+        if (ViewState["dt"] != null)
+        {
+            btnSave.Visible = true;
+        }
+        else
+        {
+            btnSave.Visible = false;
         }
     }
 
@@ -186,6 +196,23 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
+        try
+        {
+            string cs = ConfigurationManager.ConnectionStrings["CS"].ConnectionString;
 
+            DataTable dt = ViewState["dt"] as DataTable;
+
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                foreach (DataRow item in dt.Rows)
+                {
+                    string insertInto = @
+                }
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
     }
 }

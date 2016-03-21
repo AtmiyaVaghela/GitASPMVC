@@ -174,12 +174,10 @@
                                 <ItemTemplate>
                                     <asp:Button ID="btnSelect" runat="server" Text="Select" CssClass="btn btn-primary" OnClick="btnSelect_Click" />
                                 </ItemTemplate>
-                                <FooterTemplate>
-                                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="btn btn-sm btn-primary" />
-                                </FooterTemplate>
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
+                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="btn btn-sm btn-primary" />
                 </div>
             </div>
         </ContentTemplate>
