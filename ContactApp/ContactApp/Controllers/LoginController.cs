@@ -1,12 +1,9 @@
-﻿using ContactApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Text;
+﻿using ContactApp.Concrete.Filters;
 using ContactApp.Helpers.Encoding;
-using ContactApp.Concrete.Filters;
+using ContactApp.Models;
+using System;
+using System.Text;
+using System.Web.Mvc;
 
 namespace ContactApp.Controllers
 {
@@ -18,6 +15,7 @@ namespace ContactApp.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult SignIn(User user)
         {
@@ -31,10 +29,13 @@ namespace ContactApp.Controllers
 
         private void CreateCookies(User user)
         {
+            Response.Cookies["ContactApp"]["UserId"] = Encoding.ASCII.EncodeBase64("0");
             Response.Cookies["ContactApp"]["UserName"] = Encoding.ASCII.EncodeBase64(user.UserName);
             Response.Cookies["ContactApp"]["Name"] = Encoding.ASCII.EncodeBase64(user.Name);
+
             Response.Cookies["ContactApp"].Expires = DateTime.Now.AddHours(1);
         }
+
         [HttpGet]
         [CAuthorize]
         public ActionResult SignOut()
