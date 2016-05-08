@@ -18,10 +18,10 @@ namespace INDMS.WebUI.Models
         public string Year { get; set; }
         public string IssuingAuthority { get; set; }
         public string PLNo { get; set; }
+        public string Subject { get; set; }
         public System.DateTime Date { get; set; }
         public string FilePath { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
-        public string Subject { get; set; }
     }
 }

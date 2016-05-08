@@ -1,11 +1,11 @@
-﻿using System;
+﻿using INDMS.WebUI.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace INDMS.WebUI.ViewModels
 {
     public class GeneralBookViewModel
     {
+        public GeneralBook GeneralBook { get; set; }
+        public IEnumerable<GeneralBook> GeneralBooks { get; set; }
     }
 }

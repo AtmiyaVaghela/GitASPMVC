@@ -453,19 +453,64 @@ namespace INDMS.WebUI.Controllers
         #endregion Guidelines
 
         #region GeneralBooks
-        public ActionResult GeneralBooks() 
-        { 
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-       
+
         public ActionResult GeneralBooks()
         {
+            GeneralBookViewModel gbvm = new GeneralBookViewModel();
+            gbvm.GeneralBooks = db.GeneralBooks.OrderByDescending(x => x.ID);
+            return View(gbvm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GeneralBooks(GeneralBookViewModel gbvm, HttpPostedFileBase inputFile)
+        {
+            if (!string.IsNullOrEmpty(gbvm.GeneralBook.Title))
+            {
+                if (!string.IsNullOrEmpty(gbvm.GeneralBook.Subject))
+                {
+                    if (!string.IsNullOrEmpty(gbvm.GeneralBook.Year))
+                    {
+                        if (inputFile != null && inputFile.ContentLength > 0)
+                        {
+                            if (inputFile.ContentType == "application/pdf")
+                            {
+                                Guid FileName = Guid.NewGuid();
+                                gbvm.GeneralBook.FilePath = "/Uploads/GeneralBooks/" + FileName + ".pdf";
+                                string tPath = Path.Combine(Server.MapPath("~/Uploads/GeneralBooks/"), FileName + ".pdf");
+                                inputFile.SaveAs(tPath);
+
+                                db.GeneralBooks.Add(gbvm.GeneralBook);
+                                db.SaveChanges();
+
+                                TempData["RowId"] = gbvm.GeneralBook.ID;
+                                TempData["MSG"] = "Save Successfully";
+
+                                return RedirectToAction("GeneralBooks");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        TempData["Error"] = "Please Enter Year";
+                    }
+                }
+                else
+                {
+                    TempData["Error"] = "Please Enter Title";
+                }
+            }
+            else
+            {
+                TempData["Error"] = "Please Enter Title";
+            }
+
+            gbvm.GeneralBooks = db.GeneralBooks.OrderByDescending(x => x.ID);
             return View();
         }
 
-        #endregion
+        #endregion GeneralBooks
+
         private void PopulateIssuingAuthorityDropDownList()
         {
             var issuingAuthorityQuery = from d in db.ParameterMasters

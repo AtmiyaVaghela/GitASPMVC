@@ -25,13 +25,13 @@ namespace INDMS.WebUI.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<GeneralBook> GeneralBooks { get; set; }
+        public virtual DbSet<GuideLine> GuideLines { get; set; }
         public virtual DbSet<ParameterMaster> ParameterMasters { get; set; }
         public virtual DbSet<PolicyLetter> PolicyLetters { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Standard> Standards { get; set; }
         public virtual DbSet<StandingOrder> StandingOrders { get; set; }
-        public virtual DbSet<GuideLine> GuideLines { get; set; }
-        public virtual DbSet<GeneralBook> GeneralBooks { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

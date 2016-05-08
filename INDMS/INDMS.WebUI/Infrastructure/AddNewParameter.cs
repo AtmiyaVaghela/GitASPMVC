@@ -15,10 +15,10 @@ namespace INDMS.WebUI.Infrastructure
                 obj.KeyName = keyName;
                 obj.KeyValue = keyValue;
                 obj.CreatedBy = HttpContext.Current.Request.Cookies["INDMS"]["UserID"];
-                
+
                 IEnumerable<ParameterMaster> result = from d in db.ParameterMasters
-                             where d.KeyName == obj.KeyName && d.KeyValue == obj.KeyValue
-                             select d;
+                                                      where d.KeyName == obj.KeyName && d.KeyValue == obj.KeyValue
+                                                      select d;
 
                 if (result.Count() < 1)
                 {

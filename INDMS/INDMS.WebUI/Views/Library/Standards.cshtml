@@ -214,7 +214,6 @@
                             <div class="box-footer">
                                 <div class="col-md-offset-2 col-md-6">
                                     <button type="submit" class="btn btn-primary pull-right">Submit</button>
-
                                 </div>
                             </div>
                         </div>
@@ -254,28 +253,28 @@
                                 {
                                     foreach (var item in Model.Standards)
                                     {
-                                        <tr>
-                                            <td>
-                                                @item.StandardNo
-                                            </td>
-                                            <td>
-                                                @item.Year
-                                            </td>
-                                            <td>
-                                                @item.Revision
-                                            </td>
-                                            <td>
-                                                @item.SubjectParam - @item.Subject
-                                            </td>
-                                            <td>
-                                                @item.Type
-                                            </td>
-                                            <td>
-                                                <a href="@item.FilePath" target="_blank">Open</a>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td>
+                                            @item.StandardNo
+                                        </td>
+                                        <td>
+                                            @item.Year
+                                        </td>
+                                        <td>
+                                            @item.Revision
+                                        </td>
+                                        <td>
+                                            @item.SubjectParam - @item.Subject
+                                        </td>
+                                        <td>
+                                            @item.Type
+                                        </td>
+                                        <td>
+                                            <a href="@item.FilePath" target="_blank">Open</a>
+                                        </td>
+                                    </tr>
                                     }
-                                }                            
+                                }
                             </tbody>
                         </table>
                     </div>

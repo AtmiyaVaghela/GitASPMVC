@@ -1,6 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="INDMSModelStoreContainer" CdmEntityContainer="INDMSEntities">
+    <EntitySetMapping Name="GeneralBooks">
+      <EntityTypeMapping TypeName="INDMSModel.GeneralBook">
+        <MappingFragment StoreEntitySet="GeneralBooks">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GuideLines">
+      <EntityTypeMapping TypeName="INDMSModel.GuideLine">
+        <MappingFragment StoreEntitySet="GuideLine">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IssuingAuthority" ColumnName="IssuingAuthority" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ParameterMasters">
       <EntityTypeMapping TypeName="INDMSModel.ParameterMaster">
         <MappingFragment StoreEntitySet="ParameterMaster">
@@ -15,11 +39,11 @@
     <EntitySetMapping Name="PolicyLetters">
       <EntityTypeMapping TypeName="INDMSModel.PolicyLetter">
         <MappingFragment StoreEntitySet="PolicyLetter">
-          <ScalarProperty Name="Subject" ColumnName="Subject" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Year" ColumnName="Year" />
           <ScalarProperty Name="IssuingAuthority" ColumnName="IssuingAuthority" />
           <ScalarProperty Name="PLNo" ColumnName="PLNo" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="FilePath" ColumnName="FilePath" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
@@ -35,6 +59,36 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Standards">
+      <EntityTypeMapping TypeName="INDMSModel.Standard">
+        <MappingFragment StoreEntitySet="Standards">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StandardNo" ColumnName="StandardNo" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Revision" ColumnName="Revision" />
+          <ScalarProperty Name="SubjectParam" ColumnName="SubjectParam" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StandingOrders">
+      <EntityTypeMapping TypeName="INDMSModel.StandingOrder">
+        <MappingFragment StoreEntitySet="StandingOrders">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="IssuingAuthority" ColumnName="IssuingAuthority" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Revision" ColumnName="Revision" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="INDMSModel.User">
         <MappingFragment StoreEntitySet="User">
@@ -47,47 +101,6 @@
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="Active" ColumnName="Active" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Standards">
-      <EntityTypeMapping TypeName="INDMSModel.Standard">
-        <MappingFragment StoreEntitySet="Standards">
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Subject" ColumnName="Subject" />
-          <ScalarProperty Name="SubjectParam" ColumnName="SubjectParam" />
-          <ScalarProperty Name="Revision" ColumnName="Revision" />
-          <ScalarProperty Name="Year" ColumnName="Year" />
-          <ScalarProperty Name="StandardNo" ColumnName="StandardNo" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="StandingOrders">
-      <EntityTypeMapping TypeName="INDMSModel.StandingOrder">
-        <MappingFragment StoreEntitySet="StandingOrders">
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
-          <ScalarProperty Name="Revision" ColumnName="Revision" />
-          <ScalarProperty Name="Year" ColumnName="Year" />
-          <ScalarProperty Name="Subject" ColumnName="Subject" />
-          <ScalarProperty Name="IssuingAuthority" ColumnName="IssuingAuthority" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GuideLines">
-      <EntityTypeMapping TypeName="INDMSModel.GuideLine">
-        <MappingFragment StoreEntitySet="GuideLine">
-          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
-          <ScalarProperty Name="Year" ColumnName="Year" />
-          <ScalarProperty Name="Subject" ColumnName="Subject" />
-          <ScalarProperty Name="IssuingAuthority" ColumnName="IssuingAuthority" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

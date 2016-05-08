@@ -201,29 +201,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                    @foreach (var item in Model.StandingOrders)
+                                @foreach (var item in Model.StandingOrders)
                                     {
-                                        <tr>
-                             
-                                            <td>
-                                                @item.IssuingAuthority
-                                            </td>
-                                            <td>
-                                                @item.Subject
-                                            </td>
-                                            <td>
-                                                @item.Year
-                                            </td>
-                                            <td>
-                                                @item.Revision
-                                            </td>
-                                            <td>
-                                                <a href="@item.FilePath" target="_blank">Open</a>
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
+                                    <tr>
 
+                                        <td>
+                                            @item.IssuingAuthority
+                                        </td>
+                                        <td>
+                                            @item.Subject
+                                        </td>
+                                        <td>
+                                            @item.Year
+                                        </td>
+                                        <td>
+                                            @item.Revision
+                                        </td>
+                                        <td>
+                                            <a href="@item.FilePath" target="_blank">Open</a>
+                                        </td>
+                                    </tr>
+                                    }
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -235,7 +234,7 @@
     $('li').removeClass("active");
     $('#liLibrary').addClass("active")
     $('#liStandingOrder ').addClass("active")
-    
+
     $('#liStandingOrder i').addClass("text-aqua")
     $('#liGuidelinesAndStandingOrders ').addClass("active")
 </script>

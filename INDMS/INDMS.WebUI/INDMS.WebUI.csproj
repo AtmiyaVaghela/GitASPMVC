@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -106,6 +107,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\INDMS.mdf" />
+    <Content Include="App_Data\INDMS_log.ldf">
+      <DependentUpon>INDMS.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\AdminLTE.css" />
     <Content Include="Content\AdminLTE.min.css" />
     <Content Include="Content\bootstrap-datepicker.css" />
@@ -152,6 +157,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Models\INDMSModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>INDMSModel.edmx</DependentUpon>
+      <LastGenOutput>INDMSModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\INDMSModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>INDMSModel.edmx</DependentUpon>
+      <LastGenOutput>INDMSModel.cs</LastGenOutput>
+    </Content>
     <Content Include="plugins\chartjs\Chart.js" />
     <Content Include="plugins\chartjs\Chart.min.js" />
     <Content Include="plugins\datatables\dataTables.bootstrap.css" />
@@ -672,6 +687,9 @@
     <Compile Include="Infrastructure\Encoding\EncodingForBase64.cs" />
     <Compile Include="Infrastructure\Filters\AuthUser.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Models\GeneralBook.cs">
+      <DependentUpon>INDMSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GuideLine.cs">
       <DependentUpon>INDMSModel.tt</DependentUpon>
     </Compile>
@@ -710,6 +728,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ChangePassword.cs" />
+    <Compile Include="ViewModels\GeneralBookViewModel.cs" />
     <Compile Include="ViewModels\GuideLineViewModel.cs" />
     <Compile Include="ViewModels\PolicyLetterViewModel.cs" />
     <Compile Include="ViewModels\StandardViewModel.cs" />
@@ -727,23 +746,6 @@
     <Content Include="Views\Error\AccessDenied.cshtml" />
     <Content Include="Views\Utility\ChangePassword.cshtml" />
     <Content Include="Views\Library\PolicyLetter.cshtml" />
-    <EntityDeploy Include="Models\INDMSModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>INDMSModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\INDMSModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>INDMSModel.edmx</DependentUpon>
-      <LastGenOutput>INDMSModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\INDMSModel.edmx.diagram">
-      <DependentUpon>INDMSModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\INDMSModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>INDMSModel.edmx</DependentUpon>
-      <LastGenOutput>INDMSModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\bootstrap-datepicker3.standalone.min.css.map" />
     <Content Include="Content\bootstrap-datepicker3.standalone.css.map" />
     <Content Include="Content\bootstrap-datepicker3.min.css.map" />
@@ -753,9 +755,17 @@
     <Content Include="Content\bootstrap-datepicker.min.css.map" />
     <Content Include="Content\bootstrap-datepicker.css.map" />
     <Content Include="Views\Library\Standards.cshtml" />
+    <EntityDeploy Include="Models\INDMSModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>INDMSModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\INDMSModel.edmx.diagram">
+      <DependentUpon>INDMSModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\INDMS.pubxml" />
     <Content Include="Views\Library\StandingOrder.cshtml" />
     <Content Include="Views\Library\GuideLines.cshtml" />
+    <Content Include="Views\Library\GeneralBooks.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -770,7 +780,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Uploads\GeneralBooks\" />
     <Folder Include="Uploads\GuideLines\" />
     <Folder Include="Uploads\PolicyLetter\" />
     <Folder Include="Uploads\Standards\" />
