@@ -1,0 +1,10 @@
+D:\Work Space\ProjectsNew\INDMS\INDMS.Domain\bin\Debug\INDMS.Domain.dll
+D:\Work Space\ProjectsNew\INDMS\INDMS.Domain\bin\Debug\INDMS.Domain.pdb
+D:\Work Space\ProjectsNew\INDMS\INDMS.Domain\obj\Debug\INDMS.Domain.csprojResolveAssemblyReference.cache
+D:\Work Space\ProjectsNew\INDMS\INDMS.Domain\obj\Debug\INDMS.Domain.dll
+D:\Work Space\ProjectsNew\INDMS\INDMS.Domain\obj\Debug\INDMS.Domain.pdb
+D:\Work Space\ProjectsNew\INDMS\INDMS.Domain\bin\Debug\INDMS.Domain.dll.config
+D:\Work Space\ProjectsNew\INDMS\INDMS.Domain\bin\Debug\EntityFramework.dll
+D:\Work Space\ProjectsNew\INDMS\INDMS.Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work Space\ProjectsNew\INDMS\INDMS.Domain\bin\Debug\EntityFramework.xml
+D:\Work Space\ProjectsNew\INDMS\INDMS.Domain\bin\Debug\EntityFramework.SqlServer.xml
