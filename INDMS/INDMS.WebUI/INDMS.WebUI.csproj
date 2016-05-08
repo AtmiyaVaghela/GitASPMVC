@@ -687,6 +687,9 @@
     <Compile Include="Infrastructure\Encoding\EncodingForBase64.cs" />
     <Compile Include="Infrastructure\Filters\AuthUser.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Models\Drawing.cs">
+      <DependentUpon>INDMSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GeneralBook.cs">
       <DependentUpon>INDMSModel.tt</DependentUpon>
     </Compile>
@@ -728,6 +731,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ChangePassword.cs" />
+    <Compile Include="ViewModels\DrawingViewModel.cs" />
     <Compile Include="ViewModels\GeneralBookViewModel.cs" />
     <Compile Include="ViewModels\GuideLineViewModel.cs" />
     <Compile Include="ViewModels\PolicyLetterViewModel.cs" />
@@ -766,6 +770,7 @@
     <Content Include="Views\Library\StandingOrder.cshtml" />
     <Content Include="Views\Library\GuideLines.cshtml" />
     <Content Include="Views\Library\GeneralBooks.cshtml" />
+    <Content Include="Views\Library\Drawings.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -780,6 +785,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Uploads\Drawings\" />
     <Folder Include="Uploads\GeneralBooks\" />
     <Folder Include="Uploads\GuideLines\" />
     <Folder Include="Uploads\PolicyLetter\" />

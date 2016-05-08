@@ -1,5 +1,6 @@
 ﻿using INDMS.WebUI.Infrastructure.Encoding;
 using INDMS.WebUI.Models;
+using System;
 using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
@@ -31,7 +32,7 @@ namespace INDMS.WebUI.Controllers
                 }
                 else
                 {
-                    User _user = db.Users.Where(i => i.UserName == userName && i.Password == password && i.Active == "Y").SingleOrDefault();
+                    User _user = db.Users.Where(i => i.UserName == userName && i.Password == password && i.Active != "N").SingleOrDefault();
 
                     if (_user != null)
                     {
@@ -42,6 +43,12 @@ namespace INDMS.WebUI.Controllers
             }
 
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Response.Cookies["INDMS"].Expires = DateTime.Now.AddDays(-1);
+            return RedirectToAction("Login");
         }
 
         private void CreateSession(User user)

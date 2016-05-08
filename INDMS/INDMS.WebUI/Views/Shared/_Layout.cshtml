@@ -70,9 +70,10 @@
                             {
                                 name = System.Text.Encoding.ASCII.DecodeBase64(Request.Cookies["INDMS"]["Name"]);
                             }
-
                         }
-                        <p>@name</p>
+                        <p>@name @Html.ActionLink("Logout", "Logout", "Account")</p>
+                     
+       
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
@@ -103,7 +104,8 @@
                                     <li id="liGuideLines"><a href="~/Library/GuideLines"><i class="fa fa-circle-o"></i> Guide Lines</a></li>
                                 </ul>
                             </li>
-                            <li id="liGeneralBook"><a href="~/Library/GeneralBooks"><i class="fa fa-circle-o"></i>General Books</a></li>
+                            <li id="liGeneralBook"><a href="~/Library/GeneralBooks"><i class="fa fa-circle-o"></i> General Books</a></li>
+                            <li id="liDrawing"><a href="~/Library/Drawings"><i class="fa fa-circle-o"></i> Drawings</a></li>
                         </ul>
                     </li>
                     <li class="treeview">

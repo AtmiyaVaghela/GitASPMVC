@@ -33,5 +33,6 @@ namespace INDMS.WebUI.Models
         public virtual DbSet<Standard> Standards { get; set; }
         public virtual DbSet<StandingOrder> StandingOrders { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Drawing> Drawings { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using INDMS.WebUI.Infrastructure.Filters;
 using INDMS.WebUI.Models;
 using INDMS.WebUI.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ using System.Web.Mvc;
 
 namespace INDMS.WebUI.Controllers
 {
+    [AuthUser]
     public class LibraryController : Controller
     {
         private INDMSEntities db = new INDMSEntities();
@@ -18,7 +20,6 @@ namespace INDMS.WebUI.Controllers
 
         #region PolicyLetter
 
-        [AuthUser]
         public ActionResult PolicyLetter()
         {
             PolicyLetterViewModel pl = new PolicyLetterViewModel
@@ -31,18 +32,10 @@ namespace INDMS.WebUI.Controllers
         }
 
         [HttpPost]
-        [AuthUser]
         public ActionResult PolicyLetter(PolicyLetterViewModel pl, HttpPostedFileBase inputFile)
         {
             if (!string.IsNullOrEmpty(pl.PLetter.Year))
             {
-                if (pl.PLetter.IssuingAuthority.Equals("OTHERS"))
-                {
-                    pl.PLetter.IssuingAuthority = pl.OIssuingAutherity;
-                    string strKeyName = "IssuingAuthority";
-                    string strKeyValue = pl.OIssuingAutherity.ToUpper();
-                    AddParam(strKeyName, strKeyValue);
-                }
                 if (inputFile != null && inputFile.ContentLength > 0)
                 {
                     if (inputFile.ContentType == "application/pdf")
@@ -53,11 +46,21 @@ namespace INDMS.WebUI.Controllers
                             {
                                 try
                                 {
+                                    if (pl.PLetter.IssuingAuthority.Equals("OTHERS"))
+                                    {
+                                        pl.PLetter.IssuingAuthority = pl.OIssuingAutherity;
+                                        string strKeyName = "IssuingAuthority";
+                                        string strKeyValue = pl.OIssuingAutherity.ToUpper();
+                                        AddParam(strKeyName, strKeyValue);
+                                    }
+
                                     Guid FileName = Guid.NewGuid();
                                     pl.PLetter.FilePath = "/Uploads/PolicyLetter/" + FileName + ".pdf";
                                     string tPath = Path.Combine(Server.MapPath("~/Uploads/PolicyLetter/"), FileName + ".pdf");
                                     inputFile.SaveAs(tPath);
 
+                                    pl.PLetter.CreatedBy = Request.Cookies["INDMS"]["UserID"];
+                                    pl.PLetter.CreatedDate = null;
                                     db.PolicyLetters.Add(pl.PLetter);
                                     db.SaveChanges();
 
@@ -196,6 +199,9 @@ namespace INDMS.WebUI.Controllers
                                         string tPath = Path.Combine(Server.MapPath("~/Uploads/Standards/"), FileName + ".pdf");
                                         inputFile.SaveAs(tPath);
 
+                                        svm.Standard.CreatedBy = Request.Cookies["INDMS"]["UserID"];
+                                        svm.Standard.CreatedDate = null;
+
                                         db.Standards.Add(svm.Standard);
                                         db.SaveChanges();
 
@@ -330,6 +336,9 @@ namespace INDMS.WebUI.Controllers
                                     string tPath = Path.Combine(Server.MapPath("~/Uploads/StandingOrders/"), FileName + ".pdf");
                                     inputFile.SaveAs(tPath);
 
+                                    so.StandingOrder.CreatedBy = Request.Cookies["INDMS"]["UserID"];
+                                    so.StandingOrder.CreatedDate = null;
+
                                     db.StandingOrders.Add(so.StandingOrder);
                                     db.SaveChanges();
 
@@ -422,6 +431,9 @@ namespace INDMS.WebUI.Controllers
                                 string tPath = Path.Combine(Server.MapPath("~/Uploads/GuideLines/"), FileName + ".pdf");
                                 inputFile.SaveAs(tPath);
 
+                                gvm.GuideLine.CreatedBy = Request.Cookies["INDMS"]["UserID"];
+                                gvm.GuideLine.CreatedDate = null;
+
                                 db.GuideLines.Add(gvm.GuideLine);
                                 db.SaveChanges();
 
@@ -480,6 +492,9 @@ namespace INDMS.WebUI.Controllers
                                 string tPath = Path.Combine(Server.MapPath("~/Uploads/GeneralBooks/"), FileName + ".pdf");
                                 inputFile.SaveAs(tPath);
 
+                                gbvm.GeneralBook.CreatedBy = Request.Cookies["INDMS"]["UserID"];
+                                gbvm.GeneralBook.CreatedDate = null;
+
                                 db.GeneralBooks.Add(gbvm.GeneralBook);
                                 db.SaveChanges();
 
@@ -488,6 +503,14 @@ namespace INDMS.WebUI.Controllers
 
                                 return RedirectToAction("GeneralBooks");
                             }
+                            else
+                            {
+                                TempData["Error"] = "Please Select PDF Files Only.";
+                            }
+                        }
+                        else
+                        {
+                            TempData["Error"] = "Please Select File";
                         }
                     }
                     else
@@ -511,6 +534,100 @@ namespace INDMS.WebUI.Controllers
 
         #endregion GeneralBooks
 
+        #region Drawing
+
+        public ActionResult Drawings()
+        {
+            DrawingViewModel m = new DrawingViewModel();
+            m.Drawings = db.Drawings.OrderByDescending(x => x.Id);
+            foreach (Drawing item in m.Drawings)
+            {
+                item.ApprovalBy = db.Users.SingleOrDefault(x => x.UserId == new Guid(item.ApprovalBy)).Name;
+                //from d in db.Users
+                //              where d.UserId.ToString() == item.ApprovalBy
+                //              select d.Name;
+            }
+            return View(m);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Drawings(DrawingViewModel m, HttpPostedFileBase inputFile)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    if (!string.IsNullOrEmpty(m.Drawing.DrawingNo))
+                    {
+                        if (!string.IsNullOrEmpty(m.Drawing.Subject))
+                        {
+                            if (!string.IsNullOrEmpty(m.Drawing.ApprovalBy))
+                            {
+                                if (inputFile != null && inputFile.ContentLength > 0)
+                                {
+                                    if (inputFile.ContentType == "application/pdf")
+                                    {
+                                        Guid FileName = Guid.NewGuid();
+                                        m.Drawing.FilePath = "/Uploads/Drawings/" + FileName + ".pdf";
+                                        string tPath = Path.Combine(Server.MapPath("~/Uploads/Drawings/"), FileName + ".pdf");
+                                        inputFile.SaveAs(tPath);
+
+                                        m.Drawing.CreatedBy = Request.Cookies["INDMS"]["UserID"];
+                                        m.Drawing.CreatedDate = null;
+
+                                        db.Drawings.Add(m.Drawing);
+                                        db.SaveChanges();
+
+                                        TempData["RowId"] = m.Drawing.Id;
+                                        TempData["MSG"] = "Save Successfully";
+
+                                        return RedirectToAction("Drawings");
+                                    }
+                                    else
+                                    {
+                                        TempData["Error"] = "Please Select PDF Files Only.";
+                                    }
+                                }
+                                else
+                                {
+                                    TempData["Error"] = "Please Select File";
+                                }
+                            }
+                            else
+                            {
+                                TempData["Error"] = "Please Select Approval By.";
+                            }
+                        }
+                        else
+                        {
+                            TempData["Error"] = "Please Enter Subject";
+                        }
+                    }
+                    else
+                    {
+                        TempData["Error"] = "Please Enter Drawing No.";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    TempData["Error"] = ex.Message;
+                }
+            }
+
+            m.Drawings = db.Drawings.OrderByDescending(x => x.Id);
+            foreach (Drawing item in m.Drawings)
+            {
+                item.ApprovalBy = db.Users.SingleOrDefault(x => x.UserId == new Guid(item.ApprovalBy)).Name;
+                //from d in db.Users
+                //              where d.UserId.ToString() == item.ApprovalBy
+                //              select d.Name;
+            }
+            return View(m);
+        }
+
+        #endregion Drawing
+
         private void PopulateIssuingAuthorityDropDownList()
         {
             var issuingAuthorityQuery = from d in db.ParameterMasters
@@ -531,6 +648,15 @@ namespace INDMS.WebUI.Controllers
                                select d.KeyValue;
 
             return Json(KeyValueList, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult GetJsonObjOfUsers()
+        {
+            IEnumerable<User> Users = from d in db.Users
+                                      where d.Active != "N"
+                                      select d;
+            return Json(Users, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)

@@ -12,14 +12,17 @@ namespace INDMS.WebUI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class GuideLine
+    public partial class Drawing
     {
-        public decimal ID { get; set; }
-        public string IssuingAuthority { get; set; }
+        public decimal Id { get; set; }
+        public string PONo { get; set; }
+        public string FileNo { get; set; }
+        public string DrawingNo { get; set; }
         public string Subject { get; set; }
-        public string Year { get; set; }
-        public string FilePath { get; set; }
+        public System.DateTime ApprovalDate { get; set; }
+        public string ApprovalBy { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
+        public string FilePath { get; set; }
     }
 }

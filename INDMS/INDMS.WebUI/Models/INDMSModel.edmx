@@ -4,7 +4,22 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="INDMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="INDMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Drawings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PONo" Type="varchar(max)" />
+          <Property Name="FileNo" Type="varchar(max)" />
+          <Property Name="DrawingNo" Type="varchar(max)" Nullable="false" />
+          <Property Name="Subject" Type="varchar(max)" Nullable="false" />
+          <Property Name="ApprovalDate" Type="datetime" Nullable="false" />
+          <Property Name="ApprovalBy" Type="varchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="FilePath" Type="varchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="GeneralBooks">
           <Key>
             <PropertyRef Name="ID" />
@@ -26,6 +41,8 @@
           <Property Name="Subject" Type="varchar(max)" Nullable="false" />
           <Property Name="Year" Type="varchar(max)" Nullable="false" />
           <Property Name="FilePath" Type="varchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="ParameterMaster">
           <Key>
@@ -101,6 +118,7 @@
           <Property Name="Active" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityContainer Name="INDMSModelStoreContainer">
+          <EntitySet Name="Drawings" EntityType="Self.Drawings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GeneralBooks" EntityType="Self.GeneralBooks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GuideLine" EntityType="Self.GuideLine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ParameterMaster" EntityType="Self.ParameterMaster" Schema="dbo" store:Type="Tables" />
@@ -110,8 +128,7 @@
           <EntitySet Name="StandingOrders" EntityType="Self.StandingOrders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="INDMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -136,6 +153,8 @@
           <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Year" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="ParameterMaster">
           <Key>
@@ -219,7 +238,23 @@
           <EntitySet Name="Standards" EntityType="Self.Standard" />
           <EntitySet Name="StandingOrders" EntityType="Self.StandingOrder" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Drawings" EntityType="INDMSModel.Drawing" />
         </EntityContainer>
+        <EntityType Name="Drawing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="PONo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FileNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DrawingNo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovalDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ApprovalBy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -242,6 +277,8 @@
           <EntitySetMapping Name="GuideLines">
             <EntityTypeMapping TypeName="INDMSModel.GuideLine">
               <MappingFragment StoreEntitySet="GuideLine">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IssuingAuthority" ColumnName="IssuingAuthority" />
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
@@ -326,6 +363,22 @@
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drawings">
+            <EntityTypeMapping TypeName="INDMSModel.Drawing">
+              <MappingFragment StoreEntitySet="Drawings">
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ApprovalBy" ColumnName="ApprovalBy" />
+                <ScalarProperty Name="ApprovalDate" ColumnName="ApprovalDate" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="DrawingNo" ColumnName="DrawingNo" />
+                <ScalarProperty Name="FileNo" ColumnName="FileNo" />
+                <ScalarProperty Name="PONo" ColumnName="PONo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

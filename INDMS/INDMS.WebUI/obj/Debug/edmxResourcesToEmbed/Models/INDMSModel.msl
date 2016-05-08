@@ -17,6 +17,8 @@
     <EntitySetMapping Name="GuideLines">
       <EntityTypeMapping TypeName="INDMSModel.GuideLine">
         <MappingFragment StoreEntitySet="GuideLine">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="IssuingAuthority" ColumnName="IssuingAuthority" />
           <ScalarProperty Name="Subject" ColumnName="Subject" />
@@ -101,6 +103,22 @@
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drawings">
+      <EntityTypeMapping TypeName="INDMSModel.Drawing">
+        <MappingFragment StoreEntitySet="Drawings">
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ApprovalBy" ColumnName="ApprovalBy" />
+          <ScalarProperty Name="ApprovalDate" ColumnName="ApprovalDate" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="DrawingNo" ColumnName="DrawingNo" />
+          <ScalarProperty Name="FileNo" ColumnName="FileNo" />
+          <ScalarProperty Name="PONo" ColumnName="PONo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

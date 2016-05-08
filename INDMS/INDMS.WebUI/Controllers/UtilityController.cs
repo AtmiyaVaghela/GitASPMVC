@@ -80,29 +80,36 @@ namespace INDMS.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = db.Users.Find(new Guid(Request.Cookies["INDMS"]["UserID"]));
-
-                if (user != null)
+                if (!string.IsNullOrEmpty(cp.CurrentPassword) && !string.IsNullOrEmpty(cp.NewPassword) && !string.IsNullOrEmpty(cp.ReEnterPassword))
                 {
-                    if (System.Text.Encoding.ASCII.EncodeBase64(cp.CurrentPassword).Equals(user.Password))
-                    {
-                        user.Password = System.Text.Encoding.ASCII.EncodeBase64(cp.NewPassword);
-                        try
-                        {
-                            db.SaveChanges();
+                    User user = db.Users.Find(new Guid(Request.Cookies["INDMS"]["UserID"]));
 
-                            return RedirectToAction("ChangePassword");
-                        }
-                        catch (RetryLimitExceededException /* dex */)
-                        {
-                            //Log the error (uncomment dex variable name and add a line here to write a log.
-                            TempData["Error"] = "Unable to save changes. Try again, and if the problem persists, see your system administrator.";
-                        }
-                    }
-                    else
+                    if (user != null)
                     {
-                        TempData["Error"] = "Current Password not matched.";
+                        if (System.Text.Encoding.ASCII.EncodeBase64(cp.CurrentPassword).Equals(user.Password))
+                        {
+                            user.Password = System.Text.Encoding.ASCII.EncodeBase64(cp.NewPassword);
+                            try
+                            {
+                                db.SaveChanges();
+                                TempData["MSG"] = "Password changed successfully.";
+                                return RedirectToAction("ChangePassword");
+                            }
+                            catch (RetryLimitExceededException /* dex */)
+                            {
+                                //Log the error (uncomment dex variable name and add a line here to write a log.
+                                TempData["Error"] = "Unable to save changes. Try again, and if the problem persists, see your system administrator.";
+                            }
+                        }
+                        else
+                        {
+                            TempData["Error"] = "Current Password not matched.";
+                        }
                     }
+                }
+                else
+                {
+                    TempData["Error"] = "All Field are required.";
                 }
             }
             return View();
