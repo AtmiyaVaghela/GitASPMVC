@@ -61,3 +61,15 @@ C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\bin\System.Web.Mvc.xml
 C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\obj\Debug\INDMS.WebUI.csprojResolveAssemblyReference.cache
 C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\obj\Debug\INDMS.WebUI.dll
 C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\obj\Debug\INDMS.WebUI.pdb
+C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\bin\Glimpse.Ado.dll
+C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\bin\Glimpse.AspNet.dll
+C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\bin\Glimpse.Core.dll
+C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\bin\Glimpse.EF6.dll
+C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\bin\Glimpse.Mvc5.dll
+C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\bin\Antlr3.Runtime.dll
+C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\bin\Newtonsoft.Json.dll
+C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\bin\System.Web.Optimization.dll
+C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\bin\WebGrease.dll
+C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\bin\Antlr3.Runtime.pdb
+C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\bin\Newtonsoft.Json.xml
+C:\Users\Add\Desktop\GitASPMVC\INDMS\INDMS.WebUI\bin\System.Web.Optimization.xml

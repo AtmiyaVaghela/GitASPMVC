@@ -136,9 +136,11 @@
         </div>
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
-<script>
-    $('li').removeClass("active");
-    $('#liLibrary').addClass("active")
-    $('#liGeneralBook').addClass("active")
-    $('#liGeneralBook i').addClass("text-aqua")
-</script>
+@section scripts{
+    <script>
+        $('li').removeClass("active");
+        $('#liLibrary').addClass("active")
+        $('#liGeneralBook').addClass("active")
+        $('#liGeneralBook i').addClass("text-aqua")
+    </script>
+}

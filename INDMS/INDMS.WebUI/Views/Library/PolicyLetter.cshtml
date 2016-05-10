@@ -56,29 +56,18 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.PLetter.IssuingAuthority, new { @class = "control-label col-md-2" })
                                     <div class="col-md-6">
-                                        @Html.DropDownListFor(m => m.PLetter.IssuingAuthority, new SelectList(ViewBag.IssuingAuthority), new { @class = "form-control select2" })
+                                        <select id="sIssuingAuthority" class="form-control select2" name="PLetter.IssuingAuthority"></select>
                                         @Html.ValidationMessageFor(model => model.PLetter.IssuingAuthority, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-                                <script>
-                                    $(function () {
-                                        $("#PLetter_IssuingAuthority").change(function () {
-                                            var value = $('#PLetter_IssuingAuthority').val();
-                                            if (value == "OTHERS") {
-                                                $('#divOIssuingAutherity').css('display', 'block');
-                                            }
-                                            else {
-                                                $('#OIssuingAutherity').val('');
-                                                $('#divOIssuingAutherity').css('display', 'none');
-                                            }
-                                        });
-                                    });
-                                </script>
+
+
                                 <div class="form-group" id="divOIssuingAutherity" style="display:none">
                                     <div class="col-md-offset-2 col-md-6">
                                         @Html.TextBoxFor(model => model.OIssuingAutherity, null, new { @class = "form-control" })
                                     </div>
                                 </div>
+
 
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.PLetter.PLNo, new { @class = "control-label col-md-2" })
@@ -183,9 +172,44 @@
         </div>
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
-<script>
-    $('li').removeClass("active");
-    $('#liLibrary').addClass("active")
-    $('#liPolicyLetter ').addClass("active")
-    $('#liPolicyLetter i').addClass("text-aqua")
-</script>
+@section scripts{
+    <script>
+        $(function () {
+            $("#sIssuingAuthority").change(function () {
+                var value = $('#sIssuingAuthority').val();
+                if (value == "OTHERS") {
+                    $('#divOIssuingAutherity').css('display', 'block');
+                }
+                else {
+                    $('#OIssuingAutherity').val('');
+                    $('#divOIssuingAutherity').css('display', 'none');
+                }
+            });
+
+            $.ajax({
+                url: "@Url.Action("GetJsonObjOfParam","Library")",
+                type: 'POST',
+                data: { data: "IssuingAuthority" },
+                success: function (data) {
+                    $('#sIssuingAuthority').empty();
+                    $.each(data, function (index, optiondata) {
+                        $("#sIssuingAuthority").append("<option value='" + optiondata + "'>" + optiondata + "</option>");
+                    });
+                    $("#sIssuingAuthority").append("<option value='OTHERS'>OTHERS</option>");
+                    $("#sIssuingAuthority option").eq(0).before($("<option></option>").val("").text("-Select-"));
+                    $("#sIssuingAuthority").val("");
+                },
+
+                error: function (xhr) {
+                    alert("Something seems Wrong");
+
+                }
+            })
+
+            $('li').removeClass("active");
+            $('#liLibrary').addClass("active")
+            $('#liPolicyLetter ').addClass("active")
+            $('#liPolicyLetter i').addClass("text-aqua")
+        });
+    </script>
+}

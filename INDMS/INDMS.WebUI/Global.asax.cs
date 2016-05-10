@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using INDMS.WebUI.App_Start;
+using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace INDMS.WebUI
@@ -9,6 +11,7 @@ namespace INDMS.WebUI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }

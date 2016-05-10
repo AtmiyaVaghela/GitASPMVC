@@ -100,109 +100,7 @@
                                     </div>
                                 </div>
 
-                                <script>
-                                    $(function () {
-                                        $("#Standard_SubjectParam option").eq(0).before($("<option></option>").val("").text("-Select-"));
 
-                                        //$("#SubjectParam").append("<option value='OTHER'>OTHER</option>");
-
-                                        $("#Standard_SubjectParam").val("");
-
-                                        //hide subject div
-                                        //$('#subject').parent().css("display", "none");
-
-                                        $("#Standard_SubjectParam").change(function () {
-                                            var value = $('#Standard_SubjectParam').val();
-
-                                            var keyName;
-                                            if (value == "EQUIPMENT") {
-                                                keyName = "StdEquipment";
-                                            }
-                                            else if (value == "SPARES FOR") {
-                                                keyName = "StdSpareFor";
-                                            }
-                                            else {
-                                                keyName = "";
-                                            }
-
-                                            if (keyName != "") {
-
-                                                //show subject div
-                                                //$('#subject').parent().removeAttr("style");
-
-                                                $.ajax({
-                                                    url: "@Url.Action("GetJsonObjOfParam","Library")",
-                                                    type: 'POST',
-                                                    data: { data: keyName },
-                                                    success: function (data) {
-                                                        $('#subject').empty();
-                                                        $.each(data, function (index, optiondata) {
-                                                            $("#subject").append("<option value='" + optiondata + "'>" + optiondata + "</option>");
-                                                        });
-                                                        $("#subject").append("<option value='OTHERS'>OTHERS</option>");
-                                                        $("#subject option").eq(0).before($("<option></option>").val("").text("-Select-"));
-                                                        $("#subject").val("");
-                                                    },
-
-                                                    error: function (xhr) {
-                                                        alert("Something seems Wrong");
-
-                                                    }
-                                                })
-                                            }
-                                            else {
-                                                //hide subject div
-                                                //$('#subject').parent().css("display", "none");
-
-                                                $('#subject').empty();
-                                                $('#select2-subject-container').html("");
-                                            }
-
-                                        });
-                                        $("#subject").change(function () {
-                                            var subjectVar = $("#subject").val();
-                                            if (subjectVar == "OTHERS") {
-                                                $("#divOSubject").css('display', 'block');
-                                            }
-                                            else {
-                                                $("#OSubject").val("");
-                                                $("#divOSubject").css('display', 'none');
-                                            }
-                                        });
-
-                                        var keyName = "StdType";
-                                        $.ajax({
-                                            url: "@Url.Action("GetJsonObjOfParam","Library")",
-                                            type: 'POST',
-                                            data: { data: keyName },
-                                            success: function (data) {
-                                                $('#TypeD').empty();
-                                                $.each(data, function (index, optiondata) {
-                                                    $("#TypeD").append("<option value='" + optiondata + "'>" + optiondata + "</option>");
-                                                });
-                                                $("#TypeD").append("<option value='OTHERS'>OTHERS</option>");
-                                                $("#TypeD option").eq(0).before($("<option></option>").val("").text("-Select-"));
-                                                $("#TypeD").val("");
-                                            },
-
-                                            error: function (xhr) {
-                                                alert("Something seems Wrong");
-
-                                            }
-                                        });
-
-                                        $("#TypeD").change(function () {
-                                            var typeVar = $("#TypeD").val();
-                                            if (typeVar == "OTHERS") {
-                                                $("#divOType").css('display', 'block');
-                                            }
-                                            else {
-                                                $("#TypeD").val();
-                                                $("#divOType").css('display', 'none');
-                                            }
-                                        });
-                                    });
-                                </script>
                                 <div class="form-group">
                                     @Html.Label("File", new { @class = "control-label col-md-2" })
                                     <div class="col-md-6">
@@ -253,26 +151,26 @@
                                 {
                                     foreach (var item in Model.Standards)
                                     {
-                                    <tr>
-                                        <td>
-                                            @item.StandardNo
-                                        </td>
-                                        <td>
-                                            @item.Year
-                                        </td>
-                                        <td>
-                                            @item.Revision
-                                        </td>
-                                        <td>
-                                            @item.SubjectParam - @item.Subject
-                                        </td>
-                                        <td>
-                                            @item.Type
-                                        </td>
-                                        <td>
-                                            <a href="@item.FilePath" target="_blank">Open</a>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>
+                                                @item.StandardNo
+                                            </td>
+                                            <td>
+                                                @item.Year
+                                            </td>
+                                            <td>
+                                                @item.Revision
+                                            </td>
+                                            <td>
+                                                @item.SubjectParam - @item.Subject
+                                            </td>
+                                            <td>
+                                                @item.Type
+                                            </td>
+                                            <td>
+                                                <a href="@item.FilePath" target="_blank">Open</a>
+                                            </td>
+                                        </tr>
                                     }
                                 }
                             </tbody>
@@ -283,9 +181,126 @@
         </div>
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
-<script>
-    $('li').removeClass("active");
-    $('#liLibrary').addClass("active")
-    $('#liStandard ').addClass("active")
-    $('#liStandard i').addClass("text-aqua")
-</script>
+@section scripts{
+    <script>
+        $(function () {
+            $.ajax({
+                url: "@Url.Action("GetJsonObjOfParam","Library")",
+                type: 'POST',
+                data: { data: "StdSubject" },
+                success: function (data) {
+                    $('#Standard_SubjectParam').empty();
+                    $.each(data, function (index, optiondata) {
+                        $("#Standard_SubjectParam").append("<option value='" + optiondata + "'>" + optiondata + "</option>");
+                    });
+                    $("#Standard_SubjectParam").append("<option value='OTHERS'>OTHERS</option>");
+                    $("#Standard_SubjectParam option").eq(0).before($("<option></option>").val("").text("-Select-"));
+                    $("#Standard_SubjectParam").val("");
+                },
+
+                error: function (xhr) {
+                    alert("Something seems Wrong");
+
+                }
+            });        
+
+            $("#Standard_SubjectParam").change(function () {
+                var value = $('#Standard_SubjectParam').val();
+                $('#subject').empty();
+                $('#select2-subject-container').html("");
+
+                var keyName;
+                if (value == "EQUIPMENT") {
+                    keyName = "StdEquipment";
+                }
+                else if (value == "SPARES FOR") {
+                    keyName = "StdSpareFor";
+                }
+                else {
+                    keyName = "";
+                }
+
+                if (keyName != "") {
+
+                    //show subject div
+                    //$('#subject').parent().removeAttr("style");
+
+                    $.ajax({
+                        url: "@Url.Action("GetJsonObjOfParam","Library")",
+                        type: 'POST',
+                        data: { data: keyName },
+                        success: function (data) {
+                            $('#subject').empty();
+                            $.each(data, function (index, optiondata) {
+                                $("#subject").append("<option value='" + optiondata + "'>" + optiondata + "</option>");
+                            });
+                            $("#subject").append("<option value='OTHERS'>OTHERS</option>");
+                            $("#subject option").eq(0).before($("<option></option>").val("").text("-Select-"));
+                            $("#subject").val("");
+                        },
+
+                        error: function (xhr) {
+                            alert("Something seems Wrong");
+
+                        }
+                    });
+                }
+                else {
+                    //hide subject div
+                    //$('#subject').parent().css("display", "none");
+
+                    $('#subject').empty();
+                    $('#select2-subject-container').html("");
+                }
+
+            });
+            $("#subject").change(function () {
+                var subjectVar = $("#subject").val();
+                if (subjectVar == "OTHERS") {
+                    $("#divOSubject").css('display', 'block');
+                }
+                else {
+                    $("#OSubject").val("");
+                    $("#divOSubject").css('display', 'none');
+                }
+            });
+
+            var keyName = "StdType";
+            $.ajax({
+                url: "@Url.Action("GetJsonObjOfParam","Library")",
+                type: 'POST',
+                data: { data: keyName },
+                success: function (data) {
+                    $('#TypeD').empty();
+                    $.each(data, function (index, optiondata) {
+                        $("#TypeD").append("<option value='" + optiondata + "'>" + optiondata + "</option>");
+                    });
+                    $("#TypeD").append("<option value='OTHERS'>OTHERS</option>");
+                    $("#TypeD option").eq(0).before($("<option></option>").val("").text("-Select-"));
+                    $("#TypeD").val("");
+                },
+
+                error: function (xhr) {
+                    alert("Something seems Wrong");
+
+                }
+            });
+
+            $("#TypeD").change(function () {
+                var typeVar = $("#TypeD").val();
+                if (typeVar == "OTHERS") {
+                    $("#divOType").css('display', 'block');
+                }
+                else {
+                    $("#TypeD").val();
+                    $("#divOType").css('display', 'none');
+                }
+            });
+
+            $('li').removeClass("active");
+            $('#liLibrary').addClass("active")
+            $('#liStandard ').addClass("active")
+            $('#liStandard i').addClass("text-aqua")
+        });
+    </script>
+}

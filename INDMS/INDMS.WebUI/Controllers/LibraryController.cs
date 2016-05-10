@@ -11,7 +11,6 @@ using System.Web.Mvc;
 
 namespace INDMS.WebUI.Controllers
 {
-    [AuthUser]
     public class LibraryController : Controller
     {
         private INDMSEntities db = new INDMSEntities();
@@ -20,6 +19,7 @@ namespace INDMS.WebUI.Controllers
 
         #region PolicyLetter
 
+        [AuthUser]
         public ActionResult PolicyLetter()
         {
             PolicyLetterViewModel pl = new PolicyLetterViewModel
@@ -27,11 +27,11 @@ namespace INDMS.WebUI.Controllers
                 PolicyLetters = db.PolicyLetters.OrderByDescending(x => x.id)
             };
 
-            PopulateIssuingAuthorityDropDownList();
             return View(pl);
         }
 
         [HttpPost]
+        [AuthUser]
         public ActionResult PolicyLetter(PolicyLetterViewModel pl, HttpPostedFileBase inputFile)
         {
             if (!string.IsNullOrEmpty(pl.PLetter.Year))
@@ -105,7 +105,6 @@ namespace INDMS.WebUI.Controllers
                 PLetter = pl.PLetter,
                 PolicyLetters = db.PolicyLetters.OrderByDescending(x => x.id)
             };
-            PopulateIssuingAuthorityDropDownList();
             return View(plv);
         }
 
@@ -120,7 +119,7 @@ namespace INDMS.WebUI.Controllers
         #endregion PolicyLetter
 
         #region Standards
-
+        [AuthUser]
         public ActionResult Standards()
         {
             StandardViewModel pl = new StandardViewModel
@@ -134,6 +133,7 @@ namespace INDMS.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthUser]
         public ActionResult Standards(StandardViewModel svm, HttpPostedFileBase inputFile)
         {
             if (!string.IsNullOrEmpty(svm.Standard.StandardNo))
@@ -270,6 +270,7 @@ namespace INDMS.WebUI.Controllers
 
         #region StandingOrders
 
+        [AuthUser]
         public ActionResult StandingOrder()
         {
             StandingOrderViewModel so = new StandingOrderViewModel();
@@ -279,6 +280,7 @@ namespace INDMS.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthUser]
         public ActionResult StandingOrder(StandingOrderViewModel so, HttpPostedFileBase inputFile)
         {
             if (!string.IsNullOrEmpty(so.StandingOrder.IssuingAuthority))
@@ -386,6 +388,7 @@ namespace INDMS.WebUI.Controllers
 
         #region Guidelines
 
+        [AuthUser]
         public ActionResult GuideLines()
         {
             GuideLineViewModel gvm = new GuideLineViewModel();
@@ -395,6 +398,7 @@ namespace INDMS.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthUser]
         public ActionResult GuideLines(GuideLineViewModel gvm, HttpPostedFileBase inputFile)
         {
             if (!string.IsNullOrEmpty(gvm.GuideLine.IssuingAuthority))
@@ -466,6 +470,7 @@ namespace INDMS.WebUI.Controllers
 
         #region GeneralBooks
 
+        [AuthUser]
         public ActionResult GeneralBooks()
         {
             GeneralBookViewModel gbvm = new GeneralBookViewModel();
@@ -475,6 +480,7 @@ namespace INDMS.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthUser]
         public ActionResult GeneralBooks(GeneralBookViewModel gbvm, HttpPostedFileBase inputFile)
         {
             if (!string.IsNullOrEmpty(gbvm.GeneralBook.Title))
@@ -536,6 +542,7 @@ namespace INDMS.WebUI.Controllers
 
         #region Drawing
 
+        [AuthUser]
         public ActionResult Drawings()
         {
             DrawingViewModel m = new DrawingViewModel();
@@ -552,6 +559,7 @@ namespace INDMS.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthUser]
         public ActionResult Drawings(DrawingViewModel m, HttpPostedFileBase inputFile)
         {
             if (ModelState.IsValid)
@@ -642,10 +650,10 @@ namespace INDMS.WebUI.Controllers
         [HttpPost]
         public ActionResult GetJsonObjOfParam(string data)
         {
-            var KeyValueList = from d in db.ParameterMasters
-                               where d.KeyName == data
-                               orderby d.KeyName
-                               select d.KeyValue;
+            IEnumerable<string> KeyValueList = from d in db.ParameterMasters
+                                               where d.KeyName == data
+                                               orderby d.KeyName
+                                               select d.KeyValue;
 
             return Json(KeyValueList, JsonRequestBehavior.AllowGet);
         }

@@ -55,40 +55,7 @@
                                         @Html.ValidationMessageFor(model => model.GuideLine.IssuingAuthority, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-                                <script>
-                                    $(function () {
-                                        $("#sIssuingAuthority").change(function () {
-                                            var value = $('#sIssuingAuthority').val();
-                                            if (value == "OTHERS") {
-                                                $('#divOIssuingAutherity').css('display', 'block');
-                                            }
-                                            else {
-                                                $('#OIssuingAutherity').val('');
-                                                $('#divOIssuingAutherity').css('display', 'none');
-                                            }
-                                        });
 
-                                        $.ajax({
-                                            url: "@Url.Action("GetJsonObjOfParam","Library")",
-                                            type: 'POST',
-                                            data: { data: "IssuingAuthority" },
-                                            success: function (data) {
-                                                $('#sIssuingAuthority').empty();
-                                                $.each(data, function (index, optiondata) {
-                                                    $("#sIssuingAuthority").append("<option value='" + optiondata + "'>" + optiondata + "</option>");
-                                                });
-                                                $("#sIssuingAuthority").append("<option value='OTHERS'>OTHERS</option>");
-                                                $("#sIssuingAuthority option").eq(0).before($("<option></option>").val("").text("-Select-"));
-                                                $("#sIssuingAuthority").val("");
-                                            },
-
-                                            error: function (xhr) {
-                                                alert("Something seems Wrong");
-
-                                            }
-                                        })
-                                    });
-                                </script>
                                 <div class="form-group" id="divOIssuingAutherity" style="display:none">
                                     <div class="col-md-offset-2 col-md-6">
                                         @Html.TextBoxFor(model => model.OIssuingAutherity, null, new { @class = "form-control" })
@@ -174,10 +141,44 @@
         </div>
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
-<script>
-    $('li').removeClass("active");
-    $('#liLibrary').addClass("active")
-    $('#liGuideLines ').addClass("active")
-    $('#liGuideLines i').addClass("text-aqua")
-    $('#liGuidelinesAndStandingOrders ').addClass("active")
-</script>
+@section scripts{
+    <script>
+        $(function () {
+            $("#sIssuingAuthority").change(function () {
+                var value = $('#sIssuingAuthority').val();
+                if (value == "OTHERS") {
+                    $('#divOIssuingAutherity').css('display', 'block');
+                }
+                else {
+                    $('#OIssuingAutherity').val('');
+                    $('#divOIssuingAutherity').css('display', 'none');
+                }
+            });
+
+            $.ajax({
+                url: "@Url.Action("GetJsonObjOfParam","Library")",
+                type: 'POST',
+                data: { data: "IssuingAuthority" },
+                success: function (data) {
+                    $('#sIssuingAuthority').empty();
+                    $.each(data, function (index, optiondata) {
+                        $("#sIssuingAuthority").append("<option value='" + optiondata + "'>" + optiondata + "</option>");
+                    });
+                    $("#sIssuingAuthority").append("<option value='OTHERS'>OTHERS</option>");
+                    $("#sIssuingAuthority option").eq(0).before($("<option></option>").val("").text("-Select-"));
+                    $("#sIssuingAuthority").val("");
+                },
+
+                error: function (xhr) {
+                    alert("Something seems Wrong");
+
+                }
+            });
+            $('li').removeClass("active");
+            $('#liLibrary').addClass("active");
+            $('#liGuideLines ').addClass("active");
+            $('#liGuideLines i').addClass("text-aqua");
+            $('#liGuidelinesAndStandingOrders ').addClass("active");
+        });
+    </script>
+}
