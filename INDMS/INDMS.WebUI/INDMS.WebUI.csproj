@@ -2119,6 +2119,7 @@
     <Compile Include="ViewModels\GeneralBookViewModel.cs" />
     <Compile Include="ViewModels\GuideLineViewModel.cs" />
     <Compile Include="ViewModels\PolicyLetterViewModel.cs" />
+    <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="ViewModels\StandardViewModel.cs" />
     <Compile Include="ViewModels\StandingOrderViewModel.cs" />
   </ItemGroup>
@@ -2210,6 +2211,7 @@
     <Content Include="Views\Library\GuideLines.cshtml" />
     <Content Include="Views\Library\GeneralBooks.cshtml" />
     <Content Include="Views\Library\Drawings.cshtml" />
+    <Content Include="Views\Utility\Profile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -48,7 +48,7 @@
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Standard.StandardNo, new { @class = "control-label col-md-2" })
+                                    @Html.Label("Standard No", new { @class = "control-label col-md-2" })
                                     <div class="col-md-6">
                                         @Html.TextBoxFor(model => model.Standard.StandardNo, null, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.Standard.StandardNo, "", new { @class = "text-danger" })

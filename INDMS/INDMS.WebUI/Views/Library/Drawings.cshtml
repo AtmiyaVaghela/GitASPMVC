@@ -48,21 +48,21 @@
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Drawing.PONo, new { @class = "control-label col-md-2" })
+                                    @Html.Label("PO No", new { @class = "control-label col-md-2" })
                                     <div class="col-md-6">
                                         @Html.TextBoxFor(model => model.Drawing.PONo, null, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.Drawing.PONo, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Drawing.FileNo, new { @class = "control-label col-md-2" })
+                                    @Html.Label("File No", new { @class = "control-label col-md-2" })
                                     <div class="col-md-6">
                                         @Html.TextBoxFor(model => model.Drawing.FileNo, null, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.Drawing.FileNo, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Drawing.DrawingNo, new { @class = "control-label col-md-2" })
+                                    @Html.Label("Drawing No", new { @class = "control-label col-md-2" })
                                     <div class="col-md-6">
                                         @Html.TextBoxFor(model => model.Drawing.DrawingNo, null, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.Drawing.DrawingNo, "", new { @class = "text-danger" })
@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Drawing.ApprovalDate, new { @class = "control-label col-md-2" })
+                                    @Html.Label("Approval Date", new { @class = "control-label col-md-2" })
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <div class="input-group-addon">
@@ -88,7 +88,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Drawing.ApprovalBy, new { @class = "control-label col-md-2" })
+                                    @Html.Label("Approval By", new { @class = "control-label col-md-2" })
+
                                     <div class="col-md-6">
                                         <select id="sApprovalBy" class="form-control select2" name="Drawing.ApprovalBy"></select>
                                     </div>

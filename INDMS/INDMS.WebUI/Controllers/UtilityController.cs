@@ -35,6 +35,7 @@ namespace INDMS.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [CAuthRole("Admin")]
         public ActionResult CreateUser(User user)
         {
             if (ModelState.IsValid)
@@ -114,5 +115,20 @@ namespace INDMS.WebUI.Controllers
             }
             return View();
         }
+
+        [AuthUser]
+        public ActionResult Profile()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AuthUser]
+        public ActionResult Profile(ProfileViewModel m)
+        {
+            return View();
+        }
+
+
     }
 }
