@@ -1,6 +1,7 @@
 ﻿using INDMS.WebUI.Infrastructure.Encoding;
 using INDMS.WebUI.Models;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
@@ -58,6 +59,14 @@ namespace INDMS.WebUI.Controllers
             Response.Cookies["INDMS"]["Name"] = System.Text.Encoding.ASCII.EncodeBase64(user.Name);
             Response.Cookies["INDMS"]["Role"] = System.Text.Encoding.ASCII.EncodeBase64(user.Role);
             Response.Cookies["INDMS"].Expires.AddMinutes(30);
+        }
+
+        [HttpPost]
+        public ActionResult GetJsonObjOfRoles()
+        {
+            IEnumerable<string> KeyValueList = db.Roles.Select(x => x.Role1).ToList<string>();
+
+            return Json(KeyValueList, JsonRequestBehavior.AllowGet);
         }
     }
 }

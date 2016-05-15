@@ -1,4 +1,5 @@
 ﻿@model INDMS.WebUI.ViewModels.ProfileViewModel
+@using INDMS.WebUI.Infrastructure.Encoding
 @{
     ViewBag.Title = "Profile";
 }
@@ -40,13 +41,48 @@
                         <h3 class="box-title"></h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    @using (Html.BeginForm("PolicyLetter", "Library", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    @using (Html.BeginForm("Profile", "Utility", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
                         <div class="form-horizontal">
                             @Html.AntiForgeryToken()
                             <div class="box-body">
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+                                <div class="form-group">
+                                    <div class="col-md-6 col-md-offset-2">
+                                        <img src="" alt="" id="imgProfilePic" name="inputFile" class="image" style="width:140px;height:151px" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Image", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-6">
+                                        <input type="file" id="inputFile" name="inputFile">
+                                        <p class="help-block">File must be JPG.</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Full Name", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-6">
+                                        @Html.TextBoxFor(m => Model.User.Name, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Role", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-6">
+                                        <select id="sRole" name="User.Role" class="form-control"></select>
+                                        @Html.LabelFor(m => m.User.Role, @Model.User.Role, new { @class = "control-label", @id = "lblRole" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Email", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-6">
+                                        @Html.TextBoxFor(m => Model.User.Email, new { @class = "form-control" })
+                                    </div>
+                                </div>
                             </div><!-- /.box-body -->
                             <div class="box-footer">
                                 <div class="col-md-offset-2 col-md-6">
@@ -71,7 +107,50 @@
 </div><!-- /.content-wrapper -->
 @section scripts{
     <script>
+
         $(function () {
+
+            @{
+                  var imagePath = String.Empty;
+                  var role = string.Empty;
+                  if (Request.Cookies["INDMS"] != null)
+                  {
+                      imagePath = "/ProfilePic/"+ Request.Cookies["INDMS"]["UserID"] + ".JPG";
+                      role = System.Text.Encoding.ASCII.DecodeBase64(Request.Cookies["INDMS"]["Role"]);
+                  }
+              }
+
+            $('#imgProfilePic').attr("src", "@imagePath");
+
+            if ("@role" == "Admin") {
+                $('#lblRole').hide();
+
+                $.ajax({
+                    url: "@Url.Action("GetJsonObjOfRoles", "Account")",
+                    type: 'POST',
+                    data: {},
+                    success: function (data) {
+                        $('#sRole').empty();
+                        $.each(data, function (index, optiondata) {
+
+                            $("#sRole").append("<option value='" + optiondata + "'>" + optiondata + "</option>");
+                        });
+                        //$("#sApprovalBy").append("<option value='OTHERS'>OTHERS</option>");
+                        $("#sRole option").eq(0).before($("<option></option>").val("").text("-Select-"));
+                        $("#sRole").val("@Model.User.Role");
+                    },
+
+                    error: function (xhr) {
+                        alert("Something seems Wrong");
+
+                    }
+                });
+
+            }
+            else {
+                $('#sRole').hide();
+            }
+
             $('li').removeClass("active");
             $('#liUtility').addClass("active")
             $('#liProfile').addClass("active")

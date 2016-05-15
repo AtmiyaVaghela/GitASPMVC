@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace INDMS.WebUI.Controllers
@@ -119,16 +120,37 @@ namespace INDMS.WebUI.Controllers
         [AuthUser]
         public ActionResult Profile()
         {
-            return View();
+            if (Request.Cookies["INDMS"] != null)
+            {
+                ProfileViewModel m = new ProfileViewModel();
+
+                m.User = new Models.User();
+
+                m.User.UserId = new Guid(Request.Cookies["INDMS"]["UserID"]);
+
+                m.User = db.Users.SingleOrDefault(x => x.UserId == m.User.UserId);
+
+                return View(m);
+            }
+            else
+            {
+                return RedirectToAction("Logout", "Account");
+            }
         }
 
         [HttpPost]
         [AuthUser]
-        public ActionResult Profile(ProfileViewModel m)
+        public ActionResult Profile(ProfileViewModel m, HttpPostedFileBase inputFile)
         {
-            return View();
+            if (inputFile != null && inputFile.ContentLength > 0)
+            {
+                if (inputFile.ContentType == "image/jpeg")
+                {
+                    inputFile.SaveAs(Server.MapPath("~/ProfilePic/") + Request.Cookies["INDMS"]["UserID"] + ".JPG");
+
+                }
+            }
+            return View(m);
         }
-
-
     }
 }

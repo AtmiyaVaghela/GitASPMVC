@@ -1972,6 +1972,7 @@
     <Content Include="plugins\slimScroll\jquery.slimscroll.min.js" />
     <Content Include="plugins\sparkline\jquery.sparkline.js" />
     <Content Include="plugins\sparkline\jquery.sparkline.min.js" />
+    <Content Include="ProfilePic\4b23c201-84e9-47d0-834d-8aa8b40f0389.jpg" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\app.min.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
@@ -1979,6 +1980,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\demo.js" />
+    <Content Include="Scripts\jquery.cookie-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.az.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.bg.min.js" />
