@@ -48,6 +48,8 @@
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 <div class="form-group">
 
+                                    @Html.HiddenFor(x => x.PLetter.id)
+
                                     @Html.LabelFor(model => model.PLetter.Year, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-6">
                                         @Html.TextBoxFor(model => model.PLetter.Year, null, new { @class = "form-control" })
@@ -62,13 +64,11 @@
                                     </div>
                                 </div>
 
-
                                 <div class="form-group" id="divOIssuingAutherity" style="display:none">
                                     <div class="col-md-offset-2 col-md-6">
                                         @Html.TextBoxFor(model => model.OIssuingAutherity, null, new { @class = "form-control" })
                                     </div>
                                 </div>
-
 
                                 <div class="form-group">
                                     @Html.Label("Policy Letter No", new { @class = "control-label col-md-2" })
@@ -99,6 +99,10 @@
                                 <div class="form-group">
                                     @Html.Label("File", new { @class = "control-label col-md-2" })
                                     <div class="col-md-6">
+                                        @if (Model.file != null)
+                                        {
+                                            <a href="@Model.file" target="_blank" class="fa fa-folder-open-o" title="Open">Open</a>
+                                        }
                                         <input type="file" id="inputFile" name="inputFile">
                                         <p class="help-block">File must be PDF.</p>
                                     </div>
@@ -144,6 +148,7 @@
                             <tbody>
                                 @foreach (var item in Model.PolicyLetters)
                                 {
+
                                     <tr>
                                         <td>
                                             @item.Year
@@ -161,9 +166,11 @@
                                             @item.Date.ToShortDateString()
                                         </td>
                                         <td>
-                                            <a href="@item.FilePath" target="_blank">Open</a>
+                                            <a href="@item.FilePath" target="_blank" class="fa fa-folder-open-o" title="Open"></a> |
+                                            @Html.ActionLink(" ", "PolicyLetter", new { id = @item.id }, new { @class = "fa fa-edit", @title = "Edit" })
                                         </td>
                                     </tr>
+
                                 }
                             </tbody>
                         </table>
@@ -176,6 +183,8 @@
 @section scripts{
     <script>
         $(function () {
+            $('#PLetter_Date').val($('#PLetter_Date').val().substr(0, 10));
+
             $("#sIssuingAuthority").change(function () {
                 var value = $('#sIssuingAuthority').val();
                 if (value == "OTHERS") {
@@ -203,7 +212,6 @@
 
                 error: function (xhr) {
                     alert("Something seems Wrong");
-
                 }
             })
 
@@ -211,6 +219,7 @@
             $('#liLibrary').addClass("active")
             $('#liPolicyLetter ').addClass("active")
             $('#liPolicyLetter i').addClass("text-aqua")
+
         });
     </script>
 }

@@ -2215,6 +2215,12 @@
     <Content Include="Views\Library\GeneralBooks.cshtml" />
     <Content Include="Views\Library\Drawings.cshtml" />
     <Content Include="Views\Utility\Profile.cshtml" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js.map">
+      <DependentUpon>bootstrap-datepicker.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bootstrap.min.js.map">
+      <DependentUpon>bootstrap.min.js</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

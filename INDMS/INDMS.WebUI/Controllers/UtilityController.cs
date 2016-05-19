@@ -146,9 +146,44 @@ namespace INDMS.WebUI.Controllers
             {
                 if (inputFile.ContentType == "image/jpeg")
                 {
+                    System.IO.File.Delete(Server.MapPath("~/ProfilePic/") + Request.Cookies["INDMS"]["UserID"] + ".JPG");
                     inputFile.SaveAs(Server.MapPath("~/ProfilePic/") + Request.Cookies["INDMS"]["UserID"] + ".JPG");
-
                 }
+            }
+            if (!string.IsNullOrEmpty(m.User.Name))
+            {
+                if (!string.IsNullOrEmpty(m.User.Role))
+                {
+                    try
+                    {
+                        User u = db.Users.Find(m.User.UserId);
+
+                        if (u != null)
+                        {
+                            u.Name = m.User.Name;
+                            u.Role = m.User.Role;
+                            u.Email = m.User.Email;
+
+                            db.SaveChanges();
+                            TempData["MSG"] = "Profile Updated.";
+
+                            return RedirectToAction("Profile");
+                        }
+                    }
+                    catch (RetryLimitExceededException /* dex */)
+                    {
+                        //Log the error (uncomment dex variable name and add a line here to write a log.
+                        TempData["Error"] = "Unable to save changes. Try again, and if the problem persists, see your system administrator.";
+                    }
+                }
+                else
+                {
+                    TempData["Error"] = "Please select Role";
+                }
+            }
+            else
+            {
+                TempData["Error"] = "Please enter Name.";
             }
             return View(m);
         }

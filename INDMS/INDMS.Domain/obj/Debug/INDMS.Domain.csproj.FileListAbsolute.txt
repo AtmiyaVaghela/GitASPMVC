@@ -25,6 +25,5 @@ C:\Users\advaghela\Desktop\GIT\INDMS\INDMS.Domain\bin\Debug\EntityFramework.dll
 C:\Users\advaghela\Desktop\GIT\INDMS\INDMS.Domain\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\advaghela\Desktop\GIT\INDMS\INDMS.Domain\bin\Debug\EntityFramework.xml
 C:\Users\advaghela\Desktop\GIT\INDMS\INDMS.Domain\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\advaghela\Desktop\GIT\INDMS\INDMS.Domain\obj\Debug\INDMS.Domain.csprojResolveAssemblyReference.cache
 C:\Users\advaghela\Desktop\GIT\INDMS\INDMS.Domain\obj\Debug\INDMS.Domain.dll
 C:\Users\advaghela\Desktop\GIT\INDMS\INDMS.Domain\obj\Debug\INDMS.Domain.pdb

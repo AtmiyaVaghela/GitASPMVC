@@ -48,7 +48,7 @@
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                                 <div class="form-group">
-                                    @Html.Label("Issuing Authority", new { @class = "control-label col-md-2" })                                    
+                                    @Html.Label("Issuing Authority", new { @class = "control-label col-md-2" })
                                     <div class="col-md-6">
                                         <select id="sIssuingAuthority" class="form-control select2" name="StandingOrder.IssuingAuthority"></select>
                                         @Html.ValidationMessageFor(model => model.StandingOrder.IssuingAuthority, "", new { @class = "text-danger" })
@@ -68,7 +68,6 @@
                                         @Html.ValidationMessageFor(model => model.StandingOrder.Subject, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-
 
                                 <div class="form-group" id="divOSubject" style="display:none">
                                     <div class="col-md-offset-2 col-md-6">

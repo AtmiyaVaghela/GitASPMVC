@@ -20,13 +20,22 @@ namespace INDMS.WebUI.Controllers
         #region PolicyLetter
 
         [AuthUser]
-        public ActionResult PolicyLetter()
+        public ActionResult PolicyLetter(int? id)
         {
             PolicyLetterViewModel pl = new PolicyLetterViewModel
             {
                 PolicyLetters = db.PolicyLetters.OrderByDescending(x => x.id)
             };
 
+            if (id != null)
+            {
+                pl.PLetter = db.PolicyLetters.Find(id);
+
+                if (pl.PLetter != null)
+                {
+                    pl.file = pl.PLetter.FilePath;
+                }
+            }
             return View(pl);
         }
 
@@ -34,6 +43,9 @@ namespace INDMS.WebUI.Controllers
         [AuthUser]
         public ActionResult PolicyLetter(PolicyLetterViewModel pl, HttpPostedFileBase inputFile)
         {
+            if (!string.IsNullOrEmpty(Convert.ToString(pl.PLetter.id)) && pl.PLetter.id > 0)
+            {
+            }
             if (!string.IsNullOrEmpty(pl.PLetter.Year))
             {
                 if (inputFile != null && inputFile.ContentLength > 0)
@@ -119,6 +131,7 @@ namespace INDMS.WebUI.Controllers
         #endregion PolicyLetter
 
         #region Standards
+
         [AuthUser]
         public ActionResult Standards()
         {

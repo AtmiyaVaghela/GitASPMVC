@@ -47,7 +47,7 @@
                         }
                         <img src="~/ProfilePic/@userId" class="img-circle" alt="User Image">
                     </div>
-                    <div class="pull-left info">                      
+                    <div class="pull-left info">
                         <p>@name @Html.ActionLink("Logout", "Logout", "Account")</p>
 
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
@@ -112,18 +112,15 @@
         $(function () {
             $(".select2").select2();
 
-            $('.dp').datepicker({
-                format: "dd/mm/yyyy",
-                startDate: "01-01-1947",
-                todayHighlight: true
-            });
+            //$('.dp').datepicker({
+            //    format: "DD/MM/YYYY",
+            //    startDate: "01-01-1947",
+            //    todayHighlight: true
+            //});
 
-            $(".select2").select2();
-
-            $('.dp').datepicker({
-                format: "dd/mm/yyyy",
-                startDate: "01-01-1947",
-                todayHighlight: true
+            $(".dp").datepicker({
+                format: 'dd-mm-yyyy',
+                startDate: '01-01-1947'
             });
 
             $("#example1").DataTable();
@@ -131,5 +128,7 @@
     </script>
 
     @RenderSection("scripts", required: false)
+    <script>
+    </script>
 </body>
 </html>
