@@ -43,9 +43,16 @@ namespace INDMS.WebUI.Controllers
         [AuthUser]
         public ActionResult PolicyLetter(PolicyLetterViewModel pl, HttpPostedFileBase inputFile)
         {
+            string _operation = string.Empty;
             if (!string.IsNullOrEmpty(Convert.ToString(pl.PLetter.id)) && pl.PLetter.id > 0)
             {
+                _operation = "Update";
             }
+            else if (!string.IsNullOrEmpty(Convert.ToString(pl.PLetter.id)) && pl.PLetter.id <= 0)
+            {
+                _operation = "Insert";
+            }
+
             if (!string.IsNullOrEmpty(pl.PLetter.Year))
             {
                 if (inputFile != null && inputFile.ContentLength > 0)
