@@ -4,8 +4,11 @@ using INDMS.WebUI.Models;
 using INDMS.WebUI.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,18 +23,39 @@ namespace INDMS.WebUI.Controllers
         #region PolicyLetter
 
         [AuthUser]
-        public ActionResult PolicyLetter(int? id)
+        public ActionResult PolicyLetter()
         {
             PolicyLetterViewModel pl = new PolicyLetterViewModel
             {
                 PolicyLetters = db.PolicyLetters.OrderByDescending(x => x.id)
             };
 
-            if (id != null)
+            return View(pl);
+        }
+
+        [AuthUser]
+        public ActionResult PolicyLetterNew()
+        {
+            return View();
+        }
+
+        [AuthUser]
+        public ActionResult PolicyLetterEdit(int? id)
+        {
+            PolicyLetterViewModel pl = new PolicyLetterViewModel();
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            else
             {
                 pl.PLetter = db.PolicyLetters.Find(id);
-
-                if (pl.PLetter != null)
+                if (pl.PLetter == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                else
                 {
                     pl.file = pl.PLetter.FilePath;
                 }
@@ -41,18 +65,99 @@ namespace INDMS.WebUI.Controllers
 
         [HttpPost]
         [AuthUser]
-        public ActionResult PolicyLetter(PolicyLetterViewModel pl, HttpPostedFileBase inputFile)
+        public ActionResult PolicyLetterEdit(PolicyLetterViewModel pl, HttpPostedFileBase inputFile)
         {
-            string _operation = string.Empty;
-            if (!string.IsNullOrEmpty(Convert.ToString(pl.PLetter.id)) && pl.PLetter.id > 0)
+            if (!string.IsNullOrEmpty(pl.PLetter.Year))
             {
-                _operation = "Update";
+                if (!string.IsNullOrEmpty(pl.PLetter.PLNo))
+                {
+                    if (!string.IsNullOrEmpty(pl.PLetter.Subject))
+                    {
+                        try
+                        {
+                            if (pl.PLetter.IssuingAuthority.Equals("OTHERS"))
+                            {
+                                pl.PLetter.IssuingAuthority = pl.OIssuingAutherity;
+                                string strKeyName = "IssuingAuthority";
+                                string strKeyValue = pl.OIssuingAutherity.ToUpper();
+                                AddParam(strKeyName, strKeyValue);
+                            }
+                            if (inputFile != null && inputFile.ContentLength > 0)
+                            {
+                                if (inputFile.ContentType == "application/pdf")
+                                {
+                                    Guid FileName = Guid.NewGuid();
+                                    pl.PLetter.FilePath = "/Uploads/PolicyLetter/" + FileName + ".pdf";
+                                    string tPath = Path.Combine(Server.MapPath("~/Uploads/PolicyLetter/"), FileName + ".pdf");
+                                    inputFile.SaveAs(tPath);
+                                }
+                                else
+                                {
+                                    TempData["Error"] = "Only PDF Files.";
+                                }
+                            }
+                            else
+                            {
+                                pl.PLetter.FilePath = pl.file;
+                            }
+
+                            pl.PLetter.CreatedBy = Request.Cookies["INDMS"]["UserID"];
+                            pl.PLetter.CreatedDate = null;
+
+                            try
+                            {
+                                db.Entry(pl.PLetter).State = EntityState.Modified;
+                                db.SaveChanges();
+                                ModelState.Clear();
+
+                                TempData["RowId"] = pl.PLetter.id;
+                                TempData["MSG"] = "Save Successfully";
+
+                                return RedirectToAction("PolicyLetter");
+                            }
+                            catch (RetryLimitExceededException /* dex */)
+                            {
+                                TempData["Error"] = "Unable to save changes. Try again, and if the problem persists, see your system administrator.";
+                            }
+                            catch (Exception ex)
+                            {
+                                TempData["Error"] = ex.Message;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            TempData["Error"] = ex.Message;
+                        }
+                    }
+                    else
+                    {
+                        TempData["Error"] = "Please Enter Subject";
+                    }
+                }
+                else
+                {
+                    TempData["Error"] = "Please Enter Policy Letter No.";
+                }
             }
-            else if (!string.IsNullOrEmpty(Convert.ToString(pl.PLetter.id)) && pl.PLetter.id <= 0)
+            else
             {
-                _operation = "Insert";
+                TempData["Error"] = "Please Enter Valid Year";
             }
 
+            PolicyLetterViewModel plv = new PolicyLetterViewModel
+            {
+                OIssuingAutherity = pl.OIssuingAutherity,
+                PLetter = pl.PLetter,
+                PolicyLetters = db.PolicyLetters.OrderByDescending(x => x.id),
+                file = pl.file
+            };
+            return View(plv);
+        }
+
+        [HttpPost]
+        [AuthUser]
+        public ActionResult PolicyLetter(PolicyLetterViewModel pl, HttpPostedFileBase inputFile)
+        {
             if (!string.IsNullOrEmpty(pl.PLetter.Year))
             {
                 if (inputFile != null && inputFile.ContentLength > 0)

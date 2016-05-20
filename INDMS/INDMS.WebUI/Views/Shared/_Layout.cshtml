@@ -123,7 +123,9 @@
                 startDate: '01-01-1947'
             });
 
-            $("#example1").DataTable();
+            $("#example1").DataTable({
+                "order": [[0, "desc"]]
+            });
         });
     </script>
 

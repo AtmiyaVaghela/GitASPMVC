@@ -2221,6 +2221,8 @@
     <Content Include="Scripts\bootstrap.min.js.map">
       <DependentUpon>bootstrap.min.js</DependentUpon>
     </Content>
+    <Content Include="Views\Library\PolicyLetterNew.cshtml" />
+    <Content Include="Views\Library\PolicyLetterEdit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
