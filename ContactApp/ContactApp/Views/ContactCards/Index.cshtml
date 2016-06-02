@@ -1,0 +1,195 @@
+﻿@model IEnumerable<ContactApp.Models.ContactCard>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>*@
+        @*<th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Town)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Pincode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.HomeNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NirvanTithi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Education)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InterestedIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GurukulSanstha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SwaminarayanSampradaay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RWSanints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoliticalConnections)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KnownSaints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReligiousPlaces)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DevoteeCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SevaSahyog)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Relation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.MiddleName) @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            @*<td>
+                        @Html.DisplayFor(modelItem => item.MiddleName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Town)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Pincode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Photo)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNo)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.HomeNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NirvanTithi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BloodGroup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Education)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InterestedIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GurukulSanstha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SwaminarayanSampradaay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RWSanints)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PoliticalConnections)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KnownSaints)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReligiousPlaces)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DevoteeCategory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SevaSahyog)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Relation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

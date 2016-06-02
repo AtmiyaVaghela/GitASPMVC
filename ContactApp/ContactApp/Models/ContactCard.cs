@@ -36,11 +36,11 @@ namespace ContactApp.Models
         [Display(Name = "Email ID"), DataType(DataType.EmailAddress)]
         public string EmailId { get; set; }
 
-        [Display(Name = "Date Of Birth"), DefaultValue(typeof(DateTime), DateTime.Now.ToShortDateString())]
-        public DateTime BirthDate { get; set; }
+        [Display(Name = "Date Of Birth")]
+        public DateTime? BirthDate { get; set; }
 
-        [Display(Name = "Nirvan Tithi"), DefaultValue(typeof(DateTime), DateTime.Now.ToShortDateString())]
-        public DateTime NirvanTithi { get; set; }
+        [Display(Name = "Nirvan Tithi")]
+        public DateTime? NirvanTithi { get; set; }
 
         [Display(Name = "Blood Group")]
         public string BloodGroup { get; set; }
@@ -79,7 +79,6 @@ namespace ContactApp.Models
 
         public int CreatedBy { get; set; }
 
-        [DefaultValue(typeof(DateTime), DateTime.Now.ToShortDateString())]
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
     }
 }
