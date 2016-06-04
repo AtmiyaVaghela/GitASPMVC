@@ -169,3 +169,7 @@ C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\bin\Newtonsoft.Js
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.csprojResolveAssemblyReference.cache
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.dll
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.pdb
+C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.Migrations.InitialCreate.resources
+C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.csproj.GenerateResource.Cache
+C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.Migrations.MG0.resources
+C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.Migrations.MG1.resources

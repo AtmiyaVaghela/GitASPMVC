@@ -1,13 +1,12 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace ContactApp
-{
-    public class BundleConfig
-    {
+namespace ContactApp {
+
+    public class BundleConfig {
+
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
-        public static void RegisterBundles(BundleCollection bundles)
-        {
+        public static void RegisterBundles(BundleCollection bundles) {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -21,12 +20,18 @@ namespace ContactApp
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/plugins/datatables/jquery.dataTables.js",
+                      "~/plugins/datatables/dataTables.bootstrap.js",
+                      "~/plugins/select2/select2.full.min.js"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/"));
+                      "~/plugins/datatables/dataTables.bootstrap.css",
+                      "~/plugins/select2/select2.min.css"
+                      ));
         }
     }
 }

@@ -5,16 +5,15 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ContactApp.Models
-{
-    public class ContactCard
-    {
+namespace ContactApp.Models {
+
+    public class ContactCard {
         public int Id { get; set; }
 
         [Required, Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Display(Name = "Last Name")]
+        [Display(Name = "Middle Name")]
         public string MiddleName { get; set; }
 
         [Required, Display(Name = "Last Name")]
@@ -74,10 +73,10 @@ namespace ContactApp.Models
         [Display(Name = "Seva Sahyog")]
         public string SevaSahyog { get; set; }
 
-        public int RId { get; set; }
+        public int? RId { get; set; }
         public string Relation { get; set; }
 
-        public int CreatedBy { get; set; }
+        public int? CreatedBy { get; set; }
 
         public DateTime? CreatedDate { get; set; }
     }
