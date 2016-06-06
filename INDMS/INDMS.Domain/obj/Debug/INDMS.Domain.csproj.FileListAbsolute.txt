@@ -38,5 +38,3 @@ C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.Domain\bin\Debug\EntityFram
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.Domain\obj\Debug\INDMS.Domain.csprojResolveAssemblyReference.cache
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.Domain\obj\Debug\INDMS.Domain.dll
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.Domain\obj\Debug\INDMS.Domain.pdb
-C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.Domain\bin\Debug\INDMS.Domain.dll.CodeAnalysisLog.xml
-C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.Domain\bin\Debug\INDMS.Domain.dll.lastcodeanalysissucceeded

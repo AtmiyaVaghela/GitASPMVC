@@ -101,6 +101,17 @@ namespace ContactApp.Controllers {
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public async Task<ActionResult> GetRelation() {
+           
+            
+          var Relation = await (from d in db.ContactCards
+                                orderby d.Relation
+                                select d.Relation).ToListAsync();
+
+          return Json(Relation, JsonRequestBehavior.AllowGet);
+        }
+
         protected override void Dispose(bool disposing) {
             if (disposing) {
                 db.Dispose();

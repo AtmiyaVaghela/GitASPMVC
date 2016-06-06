@@ -23,7 +23,8 @@ namespace ContactApp {
                       "~/Scripts/respond.js",
                       "~/plugins/datatables/jquery.dataTables.js",
                       "~/plugins/datatables/dataTables.bootstrap.js",
-                      "~/plugins/select2/select2.full.min.js"
+                      "~/plugins/select2/select2.full.min.js",
+                      "~/Scripts/Script.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -32,6 +33,8 @@ namespace ContactApp {
                       "~/plugins/datatables/dataTables.bootstrap.css",
                       "~/plugins/select2/select2.min.css"
                       ));
+
+            BundleTable.EnableOptimizations = true;
         }
     }
 }

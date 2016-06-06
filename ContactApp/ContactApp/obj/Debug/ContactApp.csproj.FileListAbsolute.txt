@@ -173,3 +173,8 @@ C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\Contact
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.csproj.GenerateResource.Cache
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.Migrations.MG0.resources
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.Migrations.MG1.resources
+C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\bin\Glimpse.Ado.dll
+C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\bin\Glimpse.AspNet.dll
+C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\bin\Glimpse.Core.dll
+C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\bin\Glimpse.EF6.dll
+C:\Users\advaghela\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\bin\Glimpse.Mvc5.dll

@@ -1,0 +1,248 @@
+﻿@model ContactApp.Models.ContactCard
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ContactCard</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiddleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Town)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Town)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pincode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pincode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NirvanTithi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NirvanTithi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BloodGroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BloodGroup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Education)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Education)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InterestedIn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InterestedIn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GurukulSanstha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GurukulSanstha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SwaminarayanSampradaay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SwaminarayanSampradaay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RWSanints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RWSanints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PoliticalConnections)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PoliticalConnections)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KnownSaints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KnownSaints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReligiousPlaces)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReligiousPlaces)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevoteeCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevoteeCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SevaSahyog)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SevaSahyog)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Relation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Relation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
