@@ -32,7 +32,7 @@ namespace INDMS.WebUI.App_Start
                 "~/plugins/jvectormap/jquery-jvectormap-world-mill-en.js",
                 "~/plugins/slimScroll/jquery.slimscroll.min.js",
                 "~/plugins/chartjs/Chart.min.js",
-                 "~/Scripts/jquery.cookie-1.4.1.min.js",));
+                 "~/Scripts/jquery.cookie-1.4.1.min.js"));
         }
     }
 }
