@@ -122,11 +122,6 @@ C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.WebUI\bin\INDMS.WebUI.pdb
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.WebUI\bin\Antlr3.Runtime.dll
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.WebUI\bin\EntityFramework.dll
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.WebUI\bin\EntityFramework.SqlServer.dll
-C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.WebUI\bin\Glimpse.Ado.dll
-C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.WebUI\bin\Glimpse.AspNet.dll
-C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.WebUI\bin\Glimpse.Core.dll
-C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.WebUI\bin\Glimpse.EF6.dll
-C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.WebUI\bin\Glimpse.Mvc5.dll
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.WebUI\bin\INDMS.Domain.dll
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.WebUI\bin\Newtonsoft.Json.dll
 C:\Users\advaghela\Desktop\GIT\GitASPMVC\INDMS\INDMS.WebUI\bin\Ninject.dll

@@ -12,10 +12,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-namespace INDMS.WebUI.Controllers
-{
-    public class LibraryController : Controller
-    {
+namespace INDMS.WebUI.Controllers {
+    public class LibraryController : Controller {
         private INDMSEntities db = new INDMSEntities();
 
         // GET: Library
@@ -23,10 +21,8 @@ namespace INDMS.WebUI.Controllers
         #region PolicyLetter
 
         [AuthUser]
-        public ActionResult PolicyLetter()
-        {
-            PolicyLetterViewModel pl = new PolicyLetterViewModel
-            {
+        public ActionResult PolicyLetter() {
+            PolicyLetterViewModel pl = new PolicyLetterViewModel {
                 PolicyLetters = db.PolicyLetters.OrderByDescending(x => x.id)
             };
 
@@ -34,29 +30,23 @@ namespace INDMS.WebUI.Controllers
         }
 
         [AuthUser]
-        public ActionResult PolicyLetterNew()
-        {
+        public ActionResult PolicyLetterNew() {
             return View();
         }
 
         [AuthUser]
-        public ActionResult PolicyLetterEdit(int? id)
-        {
+        public ActionResult PolicyLetterEdit(int? id) {
             PolicyLetterViewModel pl = new PolicyLetterViewModel();
 
-            if (id == null)
-            {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            else
-            {
+            else {
                 pl.PLetter = db.PolicyLetters.Find(id);
-                if (pl.PLetter == null)
-                {
+                if (pl.PLetter == null) {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                else
-                {
+                else {
                     pl.file = pl.PLetter.FilePath;
                 }
             }
@@ -65,47 +55,37 @@ namespace INDMS.WebUI.Controllers
 
         [HttpPost]
         [AuthUser]
-        public ActionResult PolicyLetterEdit(PolicyLetterViewModel pl, HttpPostedFileBase inputFile)
-        {
-            if (!string.IsNullOrEmpty(pl.PLetter.Year))
-            {
-                if (!string.IsNullOrEmpty(pl.PLetter.PLNo))
-                {
-                    if (!string.IsNullOrEmpty(pl.PLetter.Subject))
-                    {
-                        try
-                        {
-                            if (pl.PLetter.IssuingAuthority.Equals("OTHERS"))
-                            {
+        public ActionResult PolicyLetterEdit(PolicyLetterViewModel pl, HttpPostedFileBase inputFile) {
+            if (!string.IsNullOrEmpty(pl.PLetter.Year)) {
+                if (!string.IsNullOrEmpty(pl.PLetter.PLNo)) {
+                    if (!string.IsNullOrEmpty(pl.PLetter.Subject)) {
+                        try {
+                            if (pl.PLetter.IssuingAuthority.Equals("OTHERS")) {
                                 pl.PLetter.IssuingAuthority = pl.OIssuingAutherity;
                                 string strKeyName = "IssuingAuthority";
                                 string strKeyValue = pl.OIssuingAutherity.ToUpper();
                                 AddParam(strKeyName, strKeyValue);
                             }
-                            if (inputFile != null && inputFile.ContentLength > 0)
-                            {
-                                if (inputFile.ContentType == "application/pdf")
-                                {
+
+                            if (inputFile != null && inputFile.ContentLength > 0) {
+                                if (inputFile.ContentType == "application/pdf") {
                                     Guid FileName = Guid.NewGuid();
                                     pl.PLetter.FilePath = "/Uploads/PolicyLetter/" + FileName + ".pdf";
                                     string tPath = Path.Combine(Server.MapPath("~/Uploads/PolicyLetter/"), FileName + ".pdf");
                                     inputFile.SaveAs(tPath);
                                 }
-                                else
-                                {
+                                else {
                                     TempData["Error"] = "Only PDF Files.";
                                 }
                             }
-                            else
-                            {
+                            else {
                                 pl.PLetter.FilePath = pl.file;
                             }
 
                             pl.PLetter.CreatedBy = Request.Cookies["INDMS"]["UserID"];
                             pl.PLetter.CreatedDate = null;
 
-                            try
-                            {
+                            try {
                                 db.Entry(pl.PLetter).State = EntityState.Modified;
                                 db.SaveChanges();
                                 ModelState.Clear();
@@ -115,37 +95,30 @@ namespace INDMS.WebUI.Controllers
 
                                 return RedirectToAction("PolicyLetter");
                             }
-                            catch (RetryLimitExceededException /* dex */)
-                            {
+                            catch (RetryLimitExceededException /* dex */) {
                                 TempData["Error"] = "Unable to save changes. Try again, and if the problem persists, see your system administrator.";
                             }
-                            catch (Exception ex)
-                            {
+                            catch (Exception ex) {
                                 TempData["Error"] = ex.Message;
                             }
                         }
-                        catch (Exception ex)
-                        {
+                        catch (Exception ex) {
                             TempData["Error"] = ex.Message;
                         }
                     }
-                    else
-                    {
+                    else {
                         TempData["Error"] = "Please Enter Subject";
                     }
                 }
-                else
-                {
+                else {
                     TempData["Error"] = "Please Enter Policy Letter No.";
                 }
             }
-            else
-            {
+            else {
                 TempData["Error"] = "Please Enter Valid Year";
             }
 
-            PolicyLetterViewModel plv = new PolicyLetterViewModel
-            {
+            PolicyLetterViewModel plv = new PolicyLetterViewModel {
                 OIssuingAutherity = pl.OIssuingAutherity,
                 PLetter = pl.PLetter,
                 PolicyLetters = db.PolicyLetters.OrderByDescending(x => x.id),
@@ -156,22 +129,14 @@ namespace INDMS.WebUI.Controllers
 
         [HttpPost]
         [AuthUser]
-        public ActionResult PolicyLetter(PolicyLetterViewModel pl, HttpPostedFileBase inputFile)
-        {
-            if (!string.IsNullOrEmpty(pl.PLetter.Year))
-            {
-                if (inputFile != null && inputFile.ContentLength > 0)
-                {
-                    if (inputFile.ContentType == "application/pdf")
-                    {
-                        if (!string.IsNullOrEmpty(pl.PLetter.PLNo))
-                        {
-                            if (!string.IsNullOrEmpty(pl.PLetter.Subject))
-                            {
-                                try
-                                {
-                                    if (pl.PLetter.IssuingAuthority.Equals("OTHERS"))
-                                    {
+        public ActionResult PolicyLetter(PolicyLetterViewModel pl, HttpPostedFileBase inputFile) {
+            if (!string.IsNullOrEmpty(pl.PLetter.Year)) {
+                if (inputFile != null && inputFile.ContentLength > 0) {
+                    if (inputFile.ContentType == "application/pdf") {
+                        if (!string.IsNullOrEmpty(pl.PLetter.PLNo)) {
+                            if (!string.IsNullOrEmpty(pl.PLetter.Subject)) {
+                                try {
+                                    if (pl.PLetter.IssuingAuthority.Equals("OTHERS")) {
                                         pl.PLetter.IssuingAuthority = pl.OIssuingAutherity;
                                         string strKeyName = "IssuingAuthority";
                                         string strKeyValue = pl.OIssuingAutherity.ToUpper();
@@ -193,38 +158,31 @@ namespace INDMS.WebUI.Controllers
 
                                     return RedirectToAction("PolicyLetter");
                                 }
-                                catch (Exception ex)
-                                {
+                                catch (Exception ex) {
                                     TempData["Error"] = ex.Message;
                                 }
                             }
-                            else
-                            {
+                            else {
                                 TempData["Error"] = "Please Enter Subject";
                             }
                         }
-                        else
-                        {
+                        else {
                             TempData["Error"] = "Please Enter Policy Letter No.";
                         }
                     }
-                    else
-                    {
+                    else {
                         TempData["Error"] = "Only PDF Files.";
                     }
                 }
-                else
-                {
+                else {
                     TempData["Error"] = "Please Select file";
                 }
             }
-            else
-            {
+            else {
                 TempData["Error"] = "Please Enter Valid Year";
             }
 
-            PolicyLetterViewModel plv = new PolicyLetterViewModel
-            {
+            PolicyLetterViewModel plv = new PolicyLetterViewModel {
                 OIssuingAutherity = pl.OIssuingAutherity,
                 PLetter = pl.PLetter,
                 PolicyLetters = db.PolicyLetters.OrderByDescending(x => x.id)
@@ -232,8 +190,7 @@ namespace INDMS.WebUI.Controllers
             return View(plv);
         }
 
-        private static void AddParam(string strKeyName, string strKeyValue)
-        {
+        private static void AddParam(string strKeyName, string strKeyValue) {
             AddNewParameter obj = new AddNewParameter();
             string keyName = strKeyName;
             string keyValue = strKeyValue;
@@ -245,80 +202,182 @@ namespace INDMS.WebUI.Controllers
         #region Standards
 
         [AuthUser]
-        public ActionResult Standards()
-        {
-            StandardViewModel pl = new StandardViewModel
-            {
+        public ActionResult Standards() {
+            StandardViewModel pl = new StandardViewModel {
                 Standards = db.Standards.OrderByDescending(x => x.Id)
             };
 
-            PopulateSubjectTypeDropDownList();
             return View(pl);
+        }
+
+        [AuthUser]
+        public ActionResult StandardNew() {
+            return View();
+        }
+
+        [AuthUser]
+        public ActionResult StandardEdit(int? id) {
+            StandardViewModel m = new StandardViewModel();
+
+            if (id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            else {
+                m.Standard = db.Standards.Find(id);
+                if (m.Standard == null) {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                else {
+                    m.file = m.Standard.FilePath;
+                }
+            }
+            return View(m);
+        }
+
+        [HttpPost]
+        [AuthUser]
+        public ActionResult StandardEdit(StandardViewModel m, HttpPostedFileBase inputFile) {
+            if (!string.IsNullOrEmpty(m.Standard.StandardNo)) {
+                if (!string.IsNullOrEmpty(m.Standard.Year)) {
+                    if (!string.IsNullOrEmpty(m.Standard.Revision)) {
+                        if (!string.IsNullOrEmpty(m.Standard.SubjectParam) && !string.IsNullOrEmpty(m.Standard.Subject)) {
+                            try {
+                                if (m.Standard.Subject.Equals("OTHERS")) {
+                                    m.Standard.Subject = m.OSubject.Trim().ToUpper();
+                                    string subjectParam = m.Standard.SubjectParam;
+                                    string strSubject = m.OSubject.Trim().ToUpper();
+                                    if (!string.IsNullOrEmpty(strSubject)) {
+                                        string keyName = subjectParam.Equals("EQUIPMENT") ? "StdEquipment" : (subjectParam.Equals("SPARES FOR") ? "StdSpareFor" : string.Empty);
+                                        if (keyName != string.Empty) {
+                                            string keyValue = strSubject;
+                                            AddParam(keyName, keyValue);
+                                        }
+                                    }
+                                    else {
+                                        TempData["Error"] = "Please Enter Subject.";
+                                    }
+                                }
+                            }
+                            catch (Exception) {
+                                TempData["Error"] = "Subject is not added to the Parameter Master.";
+                            }
+
+                            if (!string.IsNullOrEmpty(m.Standard.Type)) {
+                                if (m.Standard.Type.Equals("OTHERS")) {
+                                    m.Standard.Type = m.OType.Trim().ToUpper();
+                                    string strType = m.OType.Trim().ToUpper();
+                                    if (!string.IsNullOrEmpty(strType)) {
+                                        string keyName = "StdType";
+                                        if (keyName != string.Empty) {
+                                            string keyValue = m.Standard.Type;
+                                            AddParam(keyName, keyValue);
+                                        }
+                                    }
+                                    else {
+                                        TempData["Error"] = "Please Enter Type.";
+                                    }
+                                }
+                                if (inputFile != null && inputFile.ContentLength > 0) {
+                                    if (inputFile.ContentType == "application/pdf") {
+                                        Guid FileName = Guid.NewGuid();
+                                        m.Standard.FilePath = "/Uploads/Standards/" + FileName + ".pdf";
+                                        string tPath = Path.Combine(Server.MapPath("~/Uploads/Standards/"), FileName + ".pdf");
+                                        inputFile.SaveAs(tPath);
+
+                                        m.Standard.CreatedBy = Request.Cookies["INDMS"]["UserID"];
+                                        m.Standard.CreatedDate = null;
+
+                                        db.Standards.Add(m.Standard);
+                                        db.SaveChanges();
+
+                                        TempData["RowId"] = m.Standard.Id;
+                                        TempData["MSG"] = "Save Successfully";
+
+                                        return RedirectToAction("Standards");
+                                    }
+                                    else {
+                                        TempData["Error"] = "Please Select PDF file only";
+                                    }
+                                }
+                                else {
+                                    TempData["Error"] = "Please Select file";
+                                }
+                            }
+                            else {
+                                TempData["Error"] = "Please Select Type.";
+                            }
+                        }
+                        else {
+                            TempData["Error"] = "Please Select Subject.";
+                        }
+                    }
+                    else {
+                        TempData["Error"] = "Please Enter Revision.";
+                    }
+                }
+                else {
+                    TempData["Error"] = "Please Enter Year";
+                }
+            }
+            else {
+                TempData["Error"] = "Please Enter Standard No.";
+            }
+
+            StandardViewModel mv = new StandardViewModel {
+                Standard = m.Standard,
+                OSubject = m.OSubject,
+                OType = m.OType,
+                file = m.file
+            };
+
+            return View(mv);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthUser]
-        public ActionResult Standards(StandardViewModel svm, HttpPostedFileBase inputFile)
-        {
-            if (!string.IsNullOrEmpty(svm.Standard.StandardNo))
-            {
-                if (!string.IsNullOrEmpty(svm.Standard.Year))
-                {
-                    if (!string.IsNullOrEmpty(svm.Standard.Revision))
-                    {
-                        if (!string.IsNullOrEmpty(svm.Standard.SubjectParam) && !string.IsNullOrEmpty(svm.Standard.Subject))
-                        {
-                            try
-                            {
-                                if (svm.Standard.Subject.Equals("OTHERS"))
-                                {
+        public ActionResult Standards(StandardViewModel svm, HttpPostedFileBase inputFile) {
+            if (!string.IsNullOrEmpty(svm.Standard.StandardNo)) {
+                if (!string.IsNullOrEmpty(svm.Standard.Year)) {
+                    if (!string.IsNullOrEmpty(svm.Standard.Revision)) {
+                        if (!string.IsNullOrEmpty(svm.Standard.SubjectParam) && !string.IsNullOrEmpty(svm.Standard.Subject)) {
+                            try {
+                                if (svm.Standard.Subject.Equals("OTHERS")) {
                                     svm.Standard.Subject = svm.OSubject.Trim().ToUpper();
                                     string subjectParam = svm.Standard.SubjectParam;
                                     string strSubject = svm.OSubject.Trim().ToUpper();
-                                    if (!string.IsNullOrEmpty(strSubject))
-                                    {
+                                    if (!string.IsNullOrEmpty(strSubject)) {
                                         string keyName = subjectParam.Equals("EQUIPMENT") ? "StdEquipment" : (subjectParam.Equals("SPARES FOR") ? "StdSpareFor" : string.Empty);
-                                        if (keyName != string.Empty)
-                                        {
+                                        if (keyName != string.Empty) {
                                             string keyValue = strSubject;
                                             AddParam(keyName, keyValue);
                                         }
                                     }
-                                    else
-                                    {
+                                    else {
                                         TempData["Error"] = "Please Enter Subject.";
                                     }
                                 }
                             }
-                            catch (Exception)
-                            {
+                            catch (Exception) {
                                 TempData["Error"] = "Subject is not added to the Parameter Master.";
                             }
-                            if (!string.IsNullOrEmpty(svm.Standard.Type))
-                            {
-                                if (svm.Standard.Type.Equals("OTHERS"))
-                                {
+                            if (!string.IsNullOrEmpty(svm.Standard.Type)) {
+                                if (svm.Standard.Type.Equals("OTHERS")) {
                                     svm.Standard.Type = svm.OType.Trim().ToUpper();
                                     string strType = svm.OType.Trim().ToUpper();
-                                    if (!string.IsNullOrEmpty(strType))
-                                    {
+                                    if (!string.IsNullOrEmpty(strType)) {
                                         string keyName = "StdType";
-                                        if (keyName != string.Empty)
-                                        {
+                                        if (keyName != string.Empty) {
                                             string keyValue = svm.Standard.Type;
                                             AddParam(keyName, keyValue);
                                         }
                                     }
-                                    else
-                                    {
+                                    else {
                                         TempData["Error"] = "Please Enter Type.";
                                     }
                                 }
-                                if (inputFile != null && inputFile.ContentLength > 0)
-                                {
-                                    if (inputFile.ContentType == "application/pdf")
-                                    {
+                                if (inputFile != null && inputFile.ContentLength > 0) {
+                                    if (inputFile.ContentType == "application/pdf") {
                                         Guid FileName = Guid.NewGuid();
                                         svm.Standard.FilePath = "/Uploads/Standards/" + FileName + ".pdf";
                                         string tPath = Path.Combine(Server.MapPath("~/Uploads/Standards/"), FileName + ".pdf");
@@ -335,60 +394,40 @@ namespace INDMS.WebUI.Controllers
 
                                         return RedirectToAction("Standards");
                                     }
-                                    else
-                                    {
+                                    else {
                                         TempData["Error"] = "Please Select PDF file only";
                                     }
                                 }
-                                else
-                                {
+                                else {
                                     TempData["Error"] = "Please Select file";
                                 }
                             }
-                            else
-                            {
+                            else {
                                 TempData["Error"] = "Please Select Type.";
                             }
                         }
-                        else
-                        {
+                        else {
                             TempData["Error"] = "Please Select Subject.";
                         }
                     }
-                    else
-                    {
+                    else {
                         TempData["Error"] = "Please Enter Revision.";
                     }
                 }
-                else
-                {
+                else {
                     TempData["Error"] = "Please Enter Year";
                 }
             }
-            else
-            {
+            else {
                 TempData["Error"] = "Please Enter Standard No.";
             }
-            StandardViewModel vm = new StandardViewModel
-            {
+            StandardViewModel vm = new StandardViewModel {
                 OType = svm.OType,
                 OSubject = svm.OSubject,
                 Standard = svm.Standard,
                 Standards = db.Standards.OrderByDescending(x => x.Id)
-            };
-            PopulateSubjectTypeDropDownList();
+            };            
             return View(vm);
-        }
-
-        private void PopulateSubjectTypeDropDownList()
-        {
-            var varSubjectType = from d in db.ParameterMasters
-                                 where d.KeyName == "StdSubject"
-                                 orderby d.KeyValue
-                                 select d.KeyValue;
-
-            ViewBag.SubjectType = varSubjectType;
-            ViewBag.Subject = null;
         }
 
         #endregion Standards
@@ -396,8 +435,7 @@ namespace INDMS.WebUI.Controllers
         #region StandingOrders
 
         [AuthUser]
-        public ActionResult StandingOrder()
-        {
+        public ActionResult StandingOrder() {
             StandingOrderViewModel so = new StandingOrderViewModel();
             so.StandingOrders = db.StandingOrders.OrderByDescending(x => x.id);
             return View(so);
@@ -406,54 +444,39 @@ namespace INDMS.WebUI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthUser]
-        public ActionResult StandingOrder(StandingOrderViewModel so, HttpPostedFileBase inputFile)
-        {
-            if (!string.IsNullOrEmpty(so.StandingOrder.IssuingAuthority))
-            {
-                if (!string.IsNullOrEmpty(so.StandingOrder.Subject))
-                {
-                    if (!string.IsNullOrEmpty(so.StandingOrder.Year))
-                    {
-                        if (!string.IsNullOrEmpty(so.StandingOrder.Revision))
-                        {
-                            if (inputFile != null && inputFile.ContentLength > 0)
-                            {
-                                if (inputFile.ContentType == "application/pdf")
-                                {
-                                    if (so.StandingOrder.IssuingAuthority.Equals("OTHERS"))
-                                    {
+        public ActionResult StandingOrder(StandingOrderViewModel so, HttpPostedFileBase inputFile) {
+            if (!string.IsNullOrEmpty(so.StandingOrder.IssuingAuthority)) {
+                if (!string.IsNullOrEmpty(so.StandingOrder.Subject)) {
+                    if (!string.IsNullOrEmpty(so.StandingOrder.Year)) {
+                        if (!string.IsNullOrEmpty(so.StandingOrder.Revision)) {
+                            if (inputFile != null && inputFile.ContentLength > 0) {
+                                if (inputFile.ContentType == "application/pdf") {
+                                    if (so.StandingOrder.IssuingAuthority.Equals("OTHERS")) {
                                         string strType = so.OIssuingAutherity.Trim().ToUpper();
-                                        if (!string.IsNullOrEmpty(strType))
-                                        {
+                                        if (!string.IsNullOrEmpty(strType)) {
                                             string keyName = "IssuingAuthority";
-                                            if (keyName != string.Empty)
-                                            {
+                                            if (keyName != string.Empty) {
                                                 so.StandingOrder.IssuingAuthority = so.OIssuingAutherity.Trim().ToUpper();
                                                 string keyValue = so.StandingOrder.IssuingAuthority;
                                                 AddParam(keyName, keyValue);
                                             }
                                         }
-                                        else
-                                        {
+                                        else {
                                             TempData["Error"] = "Please Enter Issuing Authority.";
                                         }
                                     }
 
-                                    if (so.StandingOrder.Subject.Equals("OTHERS"))
-                                    {
+                                    if (so.StandingOrder.Subject.Equals("OTHERS")) {
                                         string strSubject = so.OSubject.Trim().ToUpper();
-                                        if (!string.IsNullOrEmpty(strSubject))
-                                        {
+                                        if (!string.IsNullOrEmpty(strSubject)) {
                                             string keyName = "SoSubject";
-                                            if (keyName != string.Empty)
-                                            {
+                                            if (keyName != string.Empty) {
                                                 so.StandingOrder.Subject = so.OSubject.Trim().ToUpper();
                                                 string keyValue = so.StandingOrder.Subject;
                                                 AddParam(keyName, keyValue);
                                             }
                                         }
-                                        else
-                                        {
+                                        else {
                                             TempData["Error"] = "Please Enter Subject.";
                                         }
                                     }
@@ -474,33 +497,27 @@ namespace INDMS.WebUI.Controllers
 
                                     return RedirectToAction("StandingOrder");
                                 }
-                                else
-                                {
+                                else {
                                     TempData["Error"] = "Please Select PDF file only";
                                 }
                             }
-                            else
-                            {
+                            else {
                                 TempData["Error"] = "Please Select file";
                             }
                         }
-                        else
-                        {
+                        else {
                             TempData["Error"] = "Please Enter Revision.";
                         }
                     }
-                    else
-                    {
+                    else {
                         TempData["Error"] = "Please Enter Year.";
                     }
                 }
-                else
-                {
+                else {
                     TempData["Error"] = "Please Select Subject";
                 }
             }
-            else
-            {
+            else {
                 TempData["Error"] = "Please select Issuing Authority.";
             }
 
@@ -514,8 +531,7 @@ namespace INDMS.WebUI.Controllers
         #region Guidelines
 
         [AuthUser]
-        public ActionResult GuideLines()
-        {
+        public ActionResult GuideLines() {
             GuideLineViewModel gvm = new GuideLineViewModel();
             gvm.GuideLines = db.GuideLines.OrderByDescending(x => x.ID);
             return View(gvm);
@@ -524,33 +540,23 @@ namespace INDMS.WebUI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthUser]
-        public ActionResult GuideLines(GuideLineViewModel gvm, HttpPostedFileBase inputFile)
-        {
-            if (!string.IsNullOrEmpty(gvm.GuideLine.IssuingAuthority))
-            {
-                if (!string.IsNullOrEmpty(gvm.GuideLine.Subject))
-                {
-                    if (!string.IsNullOrEmpty(gvm.GuideLine.Year))
-                    {
-                        if (inputFile != null && inputFile.ContentLength > 0)
-                        {
-                            if (inputFile.ContentType == "application/pdf")
-                            {
-                                if (gvm.GuideLine.IssuingAuthority.Equals("OTHERS"))
-                                {
+        public ActionResult GuideLines(GuideLineViewModel gvm, HttpPostedFileBase inputFile) {
+            if (!string.IsNullOrEmpty(gvm.GuideLine.IssuingAuthority)) {
+                if (!string.IsNullOrEmpty(gvm.GuideLine.Subject)) {
+                    if (!string.IsNullOrEmpty(gvm.GuideLine.Year)) {
+                        if (inputFile != null && inputFile.ContentLength > 0) {
+                            if (inputFile.ContentType == "application/pdf") {
+                                if (gvm.GuideLine.IssuingAuthority.Equals("OTHERS")) {
                                     string strIssuingAuthority = gvm.OIssuingAutherity.Trim().ToUpper();
-                                    if (!string.IsNullOrEmpty(strIssuingAuthority))
-                                    {
+                                    if (!string.IsNullOrEmpty(strIssuingAuthority)) {
                                         string keyName = "IssuingAuthority";
-                                        if (keyName != string.Empty)
-                                        {
+                                        if (keyName != string.Empty) {
                                             gvm.GuideLine.IssuingAuthority = gvm.OIssuingAutherity.Trim().ToUpper();
                                             string keyValue = gvm.GuideLine.IssuingAuthority;
                                             AddParam(keyName, keyValue);
                                         }
                                     }
-                                    else
-                                    {
+                                    else {
                                         TempData["Error"] = "Please Enter Issuing Authority.";
                                     }
                                 }
@@ -573,18 +579,15 @@ namespace INDMS.WebUI.Controllers
                             }
                         }
                     }
-                    else
-                    {
+                    else {
                         TempData["Error"] = "Please Enter Year";
                     }
                 }
-                else
-                {
+                else {
                     TempData["Error"] = "Please Enter Subject.";
                 }
             }
-            else
-            {
+            else {
                 TempData["Error"] = "Please select IssuingAuthority.";
             }
             gvm.GuideLines = db.GuideLines.OrderByDescending(x => x.ID);
@@ -596,8 +599,7 @@ namespace INDMS.WebUI.Controllers
         #region GeneralBooks
 
         [AuthUser]
-        public ActionResult GeneralBooks()
-        {
+        public ActionResult GeneralBooks() {
             GeneralBookViewModel gbvm = new GeneralBookViewModel();
             gbvm.GeneralBooks = db.GeneralBooks.OrderByDescending(x => x.ID);
             return View(gbvm);
@@ -606,18 +608,12 @@ namespace INDMS.WebUI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthUser]
-        public ActionResult GeneralBooks(GeneralBookViewModel gbvm, HttpPostedFileBase inputFile)
-        {
-            if (!string.IsNullOrEmpty(gbvm.GeneralBook.Title))
-            {
-                if (!string.IsNullOrEmpty(gbvm.GeneralBook.Subject))
-                {
-                    if (!string.IsNullOrEmpty(gbvm.GeneralBook.Year))
-                    {
-                        if (inputFile != null && inputFile.ContentLength > 0)
-                        {
-                            if (inputFile.ContentType == "application/pdf")
-                            {
+        public ActionResult GeneralBooks(GeneralBookViewModel gbvm, HttpPostedFileBase inputFile) {
+            if (!string.IsNullOrEmpty(gbvm.GeneralBook.Title)) {
+                if (!string.IsNullOrEmpty(gbvm.GeneralBook.Subject)) {
+                    if (!string.IsNullOrEmpty(gbvm.GeneralBook.Year)) {
+                        if (inputFile != null && inputFile.ContentLength > 0) {
+                            if (inputFile.ContentType == "application/pdf") {
                                 Guid FileName = Guid.NewGuid();
                                 gbvm.GeneralBook.FilePath = "/Uploads/GeneralBooks/" + FileName + ".pdf";
                                 string tPath = Path.Combine(Server.MapPath("~/Uploads/GeneralBooks/"), FileName + ".pdf");
@@ -634,28 +630,23 @@ namespace INDMS.WebUI.Controllers
 
                                 return RedirectToAction("GeneralBooks");
                             }
-                            else
-                            {
+                            else {
                                 TempData["Error"] = "Please Select PDF Files Only.";
                             }
                         }
-                        else
-                        {
+                        else {
                             TempData["Error"] = "Please Select File";
                         }
                     }
-                    else
-                    {
+                    else {
                         TempData["Error"] = "Please Enter Year";
                     }
                 }
-                else
-                {
+                else {
                     TempData["Error"] = "Please Enter Title";
                 }
             }
-            else
-            {
+            else {
                 TempData["Error"] = "Please Enter Title";
             }
 
@@ -668,12 +659,10 @@ namespace INDMS.WebUI.Controllers
         #region Drawing
 
         [AuthUser]
-        public ActionResult Drawings()
-        {
+        public ActionResult Drawings() {
             DrawingViewModel m = new DrawingViewModel();
             m.Drawings = db.Drawings.OrderByDescending(x => x.Id);
-            foreach (Drawing item in m.Drawings)
-            {
+            foreach (Drawing item in m.Drawings) {
                 item.ApprovalBy = db.Users.SingleOrDefault(x => x.UserId == new Guid(item.ApprovalBy)).Name;
                 //from d in db.Users
                 //              where d.UserId.ToString() == item.ApprovalBy
@@ -685,22 +674,14 @@ namespace INDMS.WebUI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthUser]
-        public ActionResult Drawings(DrawingViewModel m, HttpPostedFileBase inputFile)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    if (!string.IsNullOrEmpty(m.Drawing.DrawingNo))
-                    {
-                        if (!string.IsNullOrEmpty(m.Drawing.Subject))
-                        {
-                            if (!string.IsNullOrEmpty(m.Drawing.ApprovalBy))
-                            {
-                                if (inputFile != null && inputFile.ContentLength > 0)
-                                {
-                                    if (inputFile.ContentType == "application/pdf")
-                                    {
+        public ActionResult Drawings(DrawingViewModel m, HttpPostedFileBase inputFile) {
+            if (ModelState.IsValid) {
+                try {
+                    if (!string.IsNullOrEmpty(m.Drawing.DrawingNo)) {
+                        if (!string.IsNullOrEmpty(m.Drawing.Subject)) {
+                            if (!string.IsNullOrEmpty(m.Drawing.ApprovalBy)) {
+                                if (inputFile != null && inputFile.ContentLength > 0) {
+                                    if (inputFile.ContentType == "application/pdf") {
                                         Guid FileName = Guid.NewGuid();
                                         m.Drawing.FilePath = "/Uploads/Drawings/" + FileName + ".pdf";
                                         string tPath = Path.Combine(Server.MapPath("~/Uploads/Drawings/"), FileName + ".pdf");
@@ -717,40 +698,33 @@ namespace INDMS.WebUI.Controllers
 
                                         return RedirectToAction("Drawings");
                                     }
-                                    else
-                                    {
+                                    else {
                                         TempData["Error"] = "Please Select PDF Files Only.";
                                     }
                                 }
-                                else
-                                {
+                                else {
                                     TempData["Error"] = "Please Select File";
                                 }
                             }
-                            else
-                            {
+                            else {
                                 TempData["Error"] = "Please Select Approval By.";
                             }
                         }
-                        else
-                        {
+                        else {
                             TempData["Error"] = "Please Enter Subject";
                         }
                     }
-                    else
-                    {
+                    else {
                         TempData["Error"] = "Please Enter Drawing No.";
                     }
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     TempData["Error"] = ex.Message;
                 }
             }
 
             m.Drawings = db.Drawings.OrderByDescending(x => x.Id);
-            foreach (Drawing item in m.Drawings)
-            {
+            foreach (Drawing item in m.Drawings) {
                 item.ApprovalBy = db.Users.SingleOrDefault(x => x.UserId == new Guid(item.ApprovalBy)).Name;
                 //from d in db.Users
                 //              where d.UserId.ToString() == item.ApprovalBy
@@ -761,8 +735,7 @@ namespace INDMS.WebUI.Controllers
 
         #endregion Drawing
 
-        private void PopulateIssuingAuthorityDropDownList()
-        {
+        private void PopulateIssuingAuthorityDropDownList() {
             var issuingAuthorityQuery = from d in db.ParameterMasters
                                         where d.KeyName == "IssuingAuthority"
                                         orderby d.KeyValue
@@ -773,8 +746,7 @@ namespace INDMS.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetJsonObjOfParam(string data)
-        {
+        public ActionResult GetJsonObjOfParam(string data) {
             IEnumerable<string> KeyValueList = from d in db.ParameterMasters
                                                where d.KeyName == data
                                                orderby d.KeyName
@@ -784,18 +756,15 @@ namespace INDMS.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetJsonObjOfUsers()
-        {
+        public ActionResult GetJsonObjOfUsers() {
             IEnumerable<User> Users = from d in db.Users
                                       where d.Active != "N"
                                       select d;
             return Json(Users, JsonRequestBehavior.AllowGet);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing) {
                 db.Dispose();
             }
             base.Dispose(disposing);

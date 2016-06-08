@@ -2202,6 +2202,7 @@
     </Content>
     <Content Include="Views\Library\PolicyLetterNew.cshtml" />
     <Content Include="Views\Library\PolicyLetterEdit.cshtml" />
+    <Content Include="Views\Library\StandardNew.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

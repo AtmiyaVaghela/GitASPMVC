@@ -33,70 +33,90 @@
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         @TempData["Error"]
                     </div>
-                }          
+                }
 
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">
-                            @Html.ActionLink("New", "StandardNew", "Library", null, new { @class = "btn btn-primary" })
-                        </h3>
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"></h3>
                     </div><!-- /.box-header -->
-                    <div class="box-body">
-                        <table id="example1" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <td>
-                                        Standard No.
-                                    </td>
-                                    <td>
-                                        Year
-                                    </td>
-                                    <td>
-                                        Revision
-                                    </td>
-                                    <td>
-                                        Subject
-                                    </td>
-                                    <td>
-                                        Type
-                                    </td>
-                                    <td>
-                                        File
-                                    </td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if (Model.Standards != null)
-                                {
-                                    foreach (var item in Model.Standards)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @item.StandardNo
-                                            </td>
-                                            <td>
-                                                @item.Year
-                                            </td>
-                                            <td>
-                                                @item.Revision
-                                            </td>
-                                            <td>
-                                                @item.SubjectParam - @item.Subject
-                                            </td>
-                                            <td>
-                                                @item.Type
-                                            </td>
-                                            <td>
-                                                <a href="@item.FilePath" target="_blank">Open</a>
-                                                @Html.ActionLink(" ", "StandardEdit", new { id = @item.Id }, new { @class = "fa fa-edit", @title = "Edit" })
-                                            </td>
-                                        </tr>
-                                    }
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                    <!-- form start -->
+                    @using (Html.BeginForm("Standards", "Library", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="form-horizontal">
+                            @Html.AntiForgeryToken()
+                            <div class="box-body">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="form-group">
+                                    @Html.Label("Standard No", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-6">
+                                        @Html.TextBoxFor(model => model.Standard.StandardNo, null, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Standard.StandardNo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Standard.Year, new { @class = "control-label col-md-2" })
+                                    <div class="col-md-6">
+                                        @Html.TextBoxFor(model => model.Standard.Year, null, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Standard.Year, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Standard.Revision, new { @class = "control-label col-md-2" })
+                                    <div class="col-md-6">
+                                        @Html.TextBoxFor(model => model.Standard.Revision, null, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Standard.Revision, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Subject", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-6">
+                                        <select id="sSubjectType" name="Standard.SubjectParam" class="form-control"></select>
+                                        @*@Html.DropDownListFor(m => m.Standard.SubjectParam, new SelectList(ViewBag.SubjectType), new { @class = "form-control" })*@
+                                        @Html.ValidationMessageFor(model => model.Standard.SubjectParam, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-6">
+                                        <select id="subject" name="Standard.Subject" class="form-control select2"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="divOSubject" style="display:none">
+                                    <div class="col-md-offset-2 col-md-6">
+                                        @Html.TextBoxFor(model => model.OSubject, null, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Type", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-6">
+                                        <select id="TypeD" name="Standard.Type" class="form-control select2"></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="divOType" style="display:none">
+                                    <div class="col-md-offset-2 col-md-6">
+                                        @Html.TextBoxFor(model => model.OType, null, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("File", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-6">
+                                        <input type="file" id="inputFile" name="inputFile">
+                                        <p class="help-block">File must be PDF.</p>
+                                    </div>
+                                </div>
+                            </div><!-- /.box-body -->
+                            <div class="box-footer">
+                                <div class="col-md-offset-2 col-md-6">
+                                    <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div><!-- /.box -->     
             </div>
         </div>
     </section><!-- /.content -->
