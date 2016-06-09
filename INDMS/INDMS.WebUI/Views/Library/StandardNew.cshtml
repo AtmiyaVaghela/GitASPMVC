@@ -123,27 +123,7 @@
 </div><!-- /.content-wrapper -->
 @section scripts{
     <script>
-        $(function () {
-
-            @*$.ajax({
-                url: "@Url.Action("GetJsonObjOfParam","Library")",
-                type: 'POST',
-                data: { data: "StdSubject" },
-                success: function (data) {
-                    $('#Standard_SubjectParam').empty();
-                    $.each(data, function (index, optiondata) {
-                        $("#Standard_SubjectParam").append("<option value='" + optiondata + "'>" + optiondata + "</option>");
-                    });
-                    $("#Standard_SubjectParam").append("<option value='OTHERS'>OTHERS</option>");
-                    $("#Standard_SubjectParam option").eq(0).before($("<option></option>").val("").text("-Select-"));
-                    $("#Standard_SubjectParam").val("");
-                },
-
-                error: function (xhr) {
-                    alert("Something seems Wrong");
-
-                }
-            });*@
+        $(function () {          
 
             $.ajax({
                 url: "@Url.Action("GetJsonObjOfParam","Library")",
