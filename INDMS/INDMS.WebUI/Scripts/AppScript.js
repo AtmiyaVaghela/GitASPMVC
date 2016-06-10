@@ -12,12 +12,12 @@ function GetData(model,url) {
             type: 'GET',
             cache: false,
             datatype: 'json',
-            data: obj,
-            success: function (result) {
-                return result;
+            data: model,
+            success: function (data) {
+                return data;
             },
             error: function (xhr) {
-                alert("Something seems Wrong");
+                alert("Something seems Wrong in fetching data");
                 console.log(xhr);
             }
         });

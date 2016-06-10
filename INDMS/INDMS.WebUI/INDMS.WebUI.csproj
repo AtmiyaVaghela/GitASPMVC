@@ -1955,6 +1955,7 @@
     <Content Include="ProfilePic\4b23c201-84e9-47d0-834d-8aa8b40f0389.jpg" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\app.min.js" />
+    <Content Include="Scripts\AppScript.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2203,6 +2204,7 @@
     <Content Include="Views\Library\PolicyLetterNew.cshtml" />
     <Content Include="Views\Library\PolicyLetterEdit.cshtml" />
     <Content Include="Views\Library\StandardNew.cshtml" />
+    <Content Include="Views\Library\StandardEdit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

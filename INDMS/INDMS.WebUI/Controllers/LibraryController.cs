@@ -277,30 +277,43 @@ namespace INDMS.WebUI.Controllers {
                                         TempData["Error"] = "Please Enter Type.";
                                     }
                                 }
+
                                 if (inputFile != null && inputFile.ContentLength > 0) {
                                     if (inputFile.ContentType == "application/pdf") {
                                         Guid FileName = Guid.NewGuid();
                                         m.Standard.FilePath = "/Uploads/Standards/" + FileName + ".pdf";
                                         string tPath = Path.Combine(Server.MapPath("~/Uploads/Standards/"), FileName + ".pdf");
                                         inputFile.SaveAs(tPath);
-
-                                        m.Standard.CreatedBy = Request.Cookies["INDMS"]["UserID"];
-                                        m.Standard.CreatedDate = null;
-
-                                        db.Standards.Add(m.Standard);
-                                        db.SaveChanges();
-
-                                        TempData["RowId"] = m.Standard.Id;
-                                        TempData["MSG"] = "Save Successfully";
-
-                                        return RedirectToAction("Standards");
                                     }
                                     else {
-                                        TempData["Error"] = "Please Select PDF file only";
+                                        TempData["Error"] = "Only PDF Files.";
                                     }
+                                }
+                                else if (!m.file.Equals("")) {
+                                    m.Standard.FilePath = m.file;
                                 }
                                 else {
                                     TempData["Error"] = "Please Select file";
+                                }
+
+                                m.Standard.CreatedBy = Request.Cookies["INDMS"]["UserID"];
+                                m.Standard.CreatedDate = null;
+
+                                try {
+                                    db.Entry(m.Standard).State = EntityState.Modified;
+                                    db.SaveChanges();
+                                    ModelState.Clear();
+
+                                    TempData["RowId"] = m.Standard.Id;
+                                    TempData["MSG"] = "Save Successfully";
+
+                                    return RedirectToAction("Standards");
+                                }
+                                catch (RetryLimitExceededException /* dex */) {
+                                    TempData["Error"] = "Unable to save changes. Try again, and if the problem persists, see your system administrator.";
+                                }
+                                catch (Exception ex) {
+                                    TempData["Error"] = ex.Message;
                                 }
                             }
                             else {
@@ -426,7 +439,7 @@ namespace INDMS.WebUI.Controllers {
                 OSubject = svm.OSubject,
                 Standard = svm.Standard,
                 Standards = db.Standards.OrderByDescending(x => x.Id)
-            };            
+            };
             return View(vm);
         }
 
