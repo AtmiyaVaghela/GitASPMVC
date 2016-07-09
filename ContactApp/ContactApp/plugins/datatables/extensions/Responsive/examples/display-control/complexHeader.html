@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -15,7 +15,7 @@
 	th {
 		position: relative;
 		min-height: 41px;
-	} 
+	}
 	span {
 		display: block;
 		position: absolute;
@@ -25,7 +25,6 @@
 		text-overflow: ellipsis;
 		overflow: hidden;
 	}
-
 	</style>
 	<script type="text/javascript" language="javascript" src="../../../../media/js/jquery.js"></script>
 	<script type="text/javascript" language="javascript" src="../../../../media/js/jquery.dataTables.js"></script>
@@ -34,16 +33,14 @@
 	<script type="text/javascript" language="javascript" src="../../../../examples/resources/demo.js"></script>
 	<script type="text/javascript" language="javascript" class="init">
 
-
-
 $(document).ready(function() {
 	// jQuery update a column title from the demo table to contain a long description
 	// You would not need to do this in your own code.
 	$('#example thead tr:eq(0) th:eq(2)').html("This is a really long column title!");
-	
+
 	// Wrap the colspan'ing header cells with a span so they can be positioned
 	// absolutely - filling the available space, and no more.
-	$('#example thead th[colspan]').wrapInner( '<span/>' ).append( '&nbsp;' );
+	$('#example thead th[colspan]').wrapInner( '<span />' ).append( '&nbsp;' );
 
 	// Standard initialisation
 	$('#example').DataTable( {
@@ -51,9 +48,6 @@ $(document).ready(function() {
 		paging: false
 	} );
 } );
-
-
-
 	</script>
 </head>
 
@@ -576,7 +570,7 @@ $(document).ready(function() {
 	// jQuery update a column title from the demo table to contain a long description
 	// You would not need to do this in your own code.
 	$('#example thead tr:eq(0) th:eq(2)').html(&quot;This is a really long column title!&quot;);
-	
+
 	// Wrap the colspan'ing header cells with a span so they can be positioned
 	// absolutely - filling the available space, and no more.
 	$('#example thead th[colspan]').wrapInner( '&lt;span/&gt;' ).append( '&amp;nbsp;' );
@@ -607,7 +601,7 @@ $(document).ready(function() {
 						additional CSS used is shown below:</p><code class="multiline language-css">th {
 		position: relative;
 		min-height: 41px;
-	} 
+	}
 	span {
 		display: block;
 		position: absolute;

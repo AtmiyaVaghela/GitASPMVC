@@ -8,10 +8,12 @@ namespace ContactApp.Concrete.Filters
     public class CAuthorizeAttribute : AuthorizeAttribute
     {
         private readonly string[] allowRoles;
+
         public CAuthorizeAttribute(params string[] roles)
         {
             this.allowRoles = roles;
         }
+
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             bool authorise = false;
@@ -23,7 +25,6 @@ namespace ContactApp.Concrete.Filters
             }
             else
             {
-
             }
 
             if (userName.Equals("admin"))
@@ -34,12 +35,11 @@ namespace ContactApp.Concrete.Filters
             {
                 foreach (var role in allowRoles)
                 {
-
-
                 }
             }
             return authorise;
         }
+
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
             if (HttpContext.Current.Request.Cookies["ContactApp"] == null)
@@ -49,8 +49,6 @@ namespace ContactApp.Concrete.Filters
             }
             else
             {
-
-
                 filterContext.Result = new RedirectToRouteResult(new
             RouteValueDictionary(new { controller = "Error", action = "AccessDenied" }));
             }

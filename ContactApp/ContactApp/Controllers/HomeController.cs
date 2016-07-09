@@ -5,7 +5,7 @@ namespace ContactApp.Controllers
 {
     public class HomeController : Controller
     {
-        [CAuthorize("A","U")]
+        [CAuthorize("A", "U")]
         public ActionResult Index()
         {
             return View();
