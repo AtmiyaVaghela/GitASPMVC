@@ -29,7 +29,8 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.MiddleName) @Html.DisplayFor(modelItem => item.LastName)
@@ -44,7 +45,7 @@
                     @Html.DisplayFor(modelItem => item.MobileNo)
                 </td>
                 <td>
-                    <a href="#" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"> </a> |
+                    <a href="@item.Id" id="AddPlus" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"> </a> |
 
                     @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-edit", @title = "Edit" }) |
                     @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-eye-open", @title = "Info" }) |
@@ -70,9 +71,7 @@
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            <select class="form-control" id="sRelation">
-                                <option value="value">text</option>
-                            </select>
+                            <select class="form-control" id="sRelation"></select>
                         </div>
                     </div>
 
@@ -84,6 +83,7 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <a href="#" id="Add" class="btn btn-primary"> Add</a>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -93,6 +93,25 @@
 @section scripts{
     <script>
         $(document).ready(function () {
+            var rID;
+
+            $("#AddPlus").click(function (event) {
+                rID = $('#AddPlus').attr("href");
+                event.preventDefault();
+            });
+
+            $("#Add").click(function () {
+                var relation = $("#sRelation").val();
+                if (relation == "OTHERS") {
+                    relation = $("#txtRelation").val();
+                }
+
+                if (relation != null) {
+                    $("#Add").attr("href", "ContactCards/Create?rId=" + rID + "&Relation=" + relation + "");
+                    $("#txtRelation").val("");
+                }
+            });
+
             $("#sRelation").empty();
 
             $.ajax({

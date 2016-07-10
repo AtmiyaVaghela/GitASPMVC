@@ -24,14 +24,18 @@ namespace ContactApp
                       "~/plugins/datatables/jquery.dataTables.js",
                       "~/plugins/datatables/dataTables.bootstrap.js",
                       "~/plugins/select2/select2.full.min.js",
+                      "~/plugins/Bootcards/js/bootcards.min.js",
                       "~/Scripts/Script.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap.min.css",
                       "~/Content/site.css",
                       "~/plugins/datatables/dataTables.bootstrap.css",
-                      "~/plugins/select2/select2.min.css"
+                      "~/plugins/select2/select2.min.css",
+                      "~/plugins/Bootcards/css/bootcards-ios.min.css",
+                      "~/plugins/Bootcards/css/bootcards-android.min.css",
+                      "~/plugins/Bootcards/css/bootcards-desktop.min.css"
                       ));
 
             BundleTable.EnableOptimizations = true;

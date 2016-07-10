@@ -120,7 +120,7 @@ namespace ContactApp.Controllers
         {
             var Relation = await (from d in db.ContactCards
                                   orderby d.Relation
-                                  select d.Relation).ToListAsync();
+                                  select d.Relation.ToUpper()).Distinct().ToListAsync();
 
             return Json(Relation, JsonRequestBehavior.AllowGet);
         }

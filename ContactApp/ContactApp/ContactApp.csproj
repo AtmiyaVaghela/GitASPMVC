@@ -185,6 +185,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="plugins\Bootcards\css\bootcards-android.css" />
+    <Content Include="plugins\Bootcards\css\bootcards-android.min.css" />
+    <Content Include="plugins\Bootcards\css\bootcards-desktop.css" />
+    <Content Include="plugins\Bootcards\css\bootcards-desktop.min.css" />
+    <Content Include="plugins\Bootcards\css\bootcards-ios.css" />
+    <Content Include="plugins\Bootcards\css\bootcards-ios.min.css" />
+    <Content Include="plugins\Bootcards\fonts\icomoon.svg" />
+    <Content Include="plugins\Bootcards\js\bootcards.js" />
+    <Content Include="plugins\Bootcards\js\bootcards.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -441,6 +450,12 @@
     <Content Include="plugins\datatables\extensions\TableTools\images\psd\file_types.psd" />
     <Content Include="plugins\datatables\extensions\TableTools\images\psd\printer.psd" />
     <Content Include="plugins\datatables\extensions\TableTools\Readme.md" />
+    <Content Include="plugins\Bootcards\css\bootcards-android.css.map" />
+    <Content Include="plugins\Bootcards\css\bootcards-desktop.css.map" />
+    <Content Include="plugins\Bootcards\css\bootcards-ios.css.map" />
+    <Content Include="plugins\Bootcards\fonts\icomoon.eot" />
+    <Content Include="plugins\Bootcards\fonts\icomoon.ttf" />
+    <Content Include="plugins\Bootcards\fonts\icomoon.woff" />
     <None Include="Properties\PublishProfiles\ContactApp.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -499,6 +514,9 @@
     <EmbeddedResource Include="Migrations\201606030511138_MG1.resx">
       <DependentUpon>201606030511138_MG1.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

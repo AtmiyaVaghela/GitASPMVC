@@ -238,5 +238,4 @@ C:\Users\Add\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.Mi
 C:\Users\Add\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.csproj.GenerateResource.Cache
 C:\Users\Add\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.dll
 C:\Users\Add\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.pdb
-C:\Users\Add\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\bin\ContactApp.dll.CodeAnalysisLog.xml
-C:\Users\Add\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\bin\ContactApp.dll.lastcodeanalysissucceeded
+C:\Users\Add\Desktop\GIT\GitASPMVC\ContactApp\ContactApp\obj\Debug\ContactApp.csprojResolveAssemblyReference.cache
