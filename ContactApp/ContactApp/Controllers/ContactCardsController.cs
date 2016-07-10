@@ -82,7 +82,7 @@ namespace ContactApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(contactCard).State = EntityState.Modified;
+                db.Entry(contactCard).State = System.Data.Entity.EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
