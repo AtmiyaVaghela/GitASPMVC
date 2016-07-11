@@ -296,9 +296,10 @@
     </Compile>
     <Compile Include="Helpers\Encoding\EncodingForBase64.cs" />
     <Compile Include="Models\ContactCard.cs" />
-    <Compile Include="Models\ConttactAppDBContext.cs" />
+    <Compile Include="Models\ConttactCardDBContext.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\ContactCardViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -307,6 +308,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\ContactCard\Details.cshtml" />
+    <Content Include="Views\ContactCard\Create.cshtml" />
+    <Content Include="Views\ContactCard\Edit.cshtml" />
+    <Content Include="Views\ContactCard\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

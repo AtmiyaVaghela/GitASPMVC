@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ContactCards.WebUI.Models
 {
-    public class ConttactAppDBContext : DbContext
+    public class ConttactCardDBContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<ContactCard> ContactCards { get; set; }

@@ -1,0 +1,231 @@
+﻿@model ContactCards.WebUI.Models.ContactCard
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<!--contact details & notes-->
+
+<div id="contactCard">
+
+    <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+            <h3 class="panel-title pull-left">Contact Details</h3>
+            <div class="btn-group pull-right visible-xs">
+                <a class="btn btn-primary" href="/contacts/VBMJHwcLX3Vx/edit"
+                   data-toggle="modal"
+                   data-target="#editModal">
+                    <i class="fa fa-pencil"></i>
+                    <span>Edit</span>
+                </a>
+            </div>
+            <a class="btn btn-primary pull-right hidden-xs" href="/contacts/VBMJHwcLX3Vx/edit"
+               data-toggle="modal"
+               data-target="#editModal">
+                <i class="fa fa-pencil"></i>
+                <span>Edit</span>
+            </a>
+        </div>
+        <div class="list-group">
+            <div class="list-group-item">
+                <img src="@Model.Photo" class="img-rounded pull-left" />
+                <label>@Html.DisplayNameFor(model => model.FirstName)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.Address)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.Address)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.Town)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.Town)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.City)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.City)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.Pincode)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.Pincode)</h4>
+            </div>
+
+            <a class="list-group-item" href="tel://@Model.MobileNo">
+                <label>@Html.DisplayNameFor(model => model.MobileNo)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.MobileNo)</h4>
+            </a>
+
+            <a class="list-group-item" href="tel://@Model.HomeNo">
+                <label>@Html.DisplayNameFor(model => model.HomeNo)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.HomeNo)</h4>
+            </a>
+
+            <a class="list-group-item" href="mailto:@Model.EmailId">
+                <label>@Html.DisplayNameFor(model => model.EmailId)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.EmailId)</h4>
+            </a>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.BirthDate)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.BirthDate)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.NirvanTithi)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.NirvanTithi)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.BloodGroup)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.BloodGroup)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.Education)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.Education)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.InterestedIn)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.InterestedIn)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.GurukulSanstha)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.GurukulSanstha)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.SwaminarayanSampradaay)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.SwaminarayanSampradaay)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.RWSanints)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.RWSanints)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.PoliticalConnections)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.PoliticalConnections)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.KnownSaints)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.KnownSaints)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.ReligiousPlaces)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.ReligiousPlaces)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.DevoteeCategory)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.DevoteeCategory)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.SevaSahyog)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.SevaSahyog)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.RId)</label>
+                <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.RId)</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>@Html.DisplayNameFor(model => model.Relation)</label>
+                <h4 class="list-group-item-heading" @Html.DisplayFor(model => model.Relation)</h4>
+            </div>
+
+            <a class="list-group-item" href="tel://+1 650-555-0055">
+                <label>Phone</label>
+                <h4 class="list-group-item-heading">+1 650-555-0055</h4>
+            </a>
+            <a class="list-group-item" href="mailto:Sofia.Acey@masung.com">
+                <label>Email</label>
+                <h4 class="list-group-item-heading">Sofia.Acey@masung.com</h4>
+            </a>
+        </div>
+        <div class="panel-footer">
+            <small class="pull-left">Built with Bootcards - Base Card</small>
+            <a class="btn btn-link btn-xs pull-right"
+               href="/snippets/base-card-form"
+               data-toggle="modal"
+               data-target="#docsModal">
+                View Source
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--list of notes-->
+@*<div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title pull-left">Notes</h3>
+                <div class="btn-group pull-right">
+                    <a class="btn btn-primary" href="/contacts/VBMJHwcLX3Vx/notes/add"
+                       data-toggle="modal"
+                       data-target="#editModal">
+                        <i class="fa fa-plus"></i>
+                        <span>Add</span>
+                    </a>
+                </div>
+            </div>
+            <div class="list-group">
+                <a class="list-group-item pjax"
+                   href="/contacts/VBMJHwcLX3Vx/notes/ucw9gtbjq7ls">
+                    <i class="fa fa-2x pull-left fa-check-square-o"></i>
+                    <h4 class="list-group-item-heading">Send tracking Number</h4>
+                    <p class="list-group-item-text">Mon 02 Dec 2013 17:27</p>
+                </a>
+                <a class="list-group-item pjax"
+                   href="/contacts/VBMJHwcLX3Vx/notes/1rhen4xigta0w">
+                    <i class="fa fa-2x pull-left fa-file-text-o"></i>
+                    <h4 class="list-group-item-heading">Improved Load Time</h4>
+                    <p class="list-group-item-text">Mon 02 Dec 2013 17:26</p>
+                </a>
+                <a class="list-group-item pjax"
+                   href="/contacts/VBMJHwcLX3Vx/notes/1rhen4xigta0z">
+                    <i class="fa fa-2x pull-left fa-paperclip"></i>
+                    <h4 class="list-group-item-heading">Stingray.pdf</h4>
+                    <p class="list-group-item-text">Mon 02 Dec 2013 17:26</p>
+                </a>
+                <a class="list-group-item pjax"
+                   href="/contacts/VBMJHwcLX3Vx/notes/uywr1g2fnvuo">
+                    <i class="fa fa-2x pull-left fa-picture-o"></i>
+                    <h4 class="list-group-item-heading">Product image</h4>
+                    <p class="list-group-item-text">Mon 02 Dec 2013 17:26</p>
+                </a>
+            </div>
+            <div class="panel-footer">
+                <small class="pull-left">Built with Bootcards - List</small>
+                <a class="btn btn-link btn-xs pull-right"
+                   href="/snippets/list-card"
+                   data-toggle="modal"
+                   data-target="#docsModal">
+                    View Source
+                </a>
+            </div>
+        </div>
+    </div>*@
+
+@*<div>
+    <h2>Details</h2>
+
+            <h4>ContactCard</h4>
+            <hr />
+            <dl class="dl-horizontal">
+           </dl>
+        </div>*@
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -12,6 +12,8 @@ namespace ContactCards.WebUI.Controllers
 {
     public class AccountController : Controller
     {
+        private ConttactCardDBContext db = new ConttactCardDBContext();
+
         [HttpGet]
         public ActionResult SignIn()
         {
@@ -26,7 +28,22 @@ namespace ContactCards.WebUI.Controllers
                 user.Name = "Atmiya Vaghela";
                 CreateCookies(user);
             }
-            return RedirectToAction("Index", "ContactCards");
+            else
+            {
+                string password = Encoding.ASCII.EncodeBase64(user.Password);
+                User u = db.Users.SingleOrDefault(x => x.UserName == user.UserName && x.Password == password);
+
+                if (u != null)
+                {
+                    CreateCookies(user);
+                }
+                else
+                {
+                    TempData["Error"] = "Username and password are not matched";
+                    return View(user);
+                }
+            }
+            return RedirectToAction("Index", "ContactCard");
         }
 
         private void CreateCookies(User user)

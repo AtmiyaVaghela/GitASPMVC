@@ -19,14 +19,14 @@ namespace ContactCards.WebUI.Controllers
         }
 
         [HttpPost]
-        //[CAuthorize("ADMIN")]
+        [CAuthorize("ADMIN")]
         [ValidateAntiForgeryToken]
         public ActionResult CreateUser(User user)
         {
             if (ModelState.IsValid)
             {
                 User u;
-                using (var db = new ConttactAppDBContext())
+                using (var db = new ConttactCardDBContext())
                 {
                     u = db.Users
                      .Where(x => x.UserName.Equals(user.UserName))
@@ -38,9 +38,9 @@ namespace ContactCards.WebUI.Controllers
                     user.Password = Encoding.ASCII.EncodeBase64(user.Password);
                     user.Name = user.Name.ToUpper();
                     user.Role = user.Role.ToUpper();
-                    user.CreatedBy = Convert.ToInt32(Encoding.ASCII.DecodeBase64(Request.Cookies["ContactApp"]["UserId"]));
+                    //user.CreatedBy = Convert.ToInt32(Encoding.ASCII.DecodeBase64(Request.Cookies["ContactApp"]["UserId"]));
                     user.CreatedDate = DateTime.Now;
-                    using (var db = new ConttactAppDBContext())
+                    using (var db = new ConttactCardDBContext())
                     {
                         db.Users.Add(user);
                         db.SaveChanges();
