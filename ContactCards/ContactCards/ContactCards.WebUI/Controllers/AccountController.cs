@@ -12,7 +12,7 @@ namespace ContactCards.WebUI.Controllers
 {
     public class AccountController : Controller
     {
-        private ConttactCardDBContext db = new ConttactCardDBContext();
+        private ContactCardDBContext db = new ContactCardDBContext();
 
         [HttpGet]
         public ActionResult SignIn()

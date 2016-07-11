@@ -11,10 +11,10 @@ namespace ContactCards.WebUI.Controllers
 {
     public class ContactCardController : Controller
     {
-        private ConttactCardDBContext db = new ConttactCardDBContext();
+        private ContactCardDBContext db = new ContactCardDBContext();
 
         [CAuthorize("A", "U")]
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             ContactCardViewModel CC = new ContactCardViewModel();
             CC.CC = db.ContactCards.ToList();
@@ -33,7 +33,7 @@ namespace ContactCards.WebUI.Controllers
             {
                 return HttpNotFound();
             }
-            return PartialView("Details", contactCard);
+            return View("Details", contactCard);
         }
 
         // GET: ContactCards/Create
@@ -47,8 +47,9 @@ namespace ContactCards.WebUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,MiddleName,LastName,Address,Town,City,Pincode,Photo,MobileNo,HomeNo,EmailId,BirthDate,NirvanTithi,BloodGroup,Education,InterestedIn,GurukulSanstha,SwaminarayanSampradaay,RWSanints,PoliticalConnections,KnownSaints,ReligiousPlaces,DevoteeCategory,SevaSahyog,RId,Relation,CreatedBy,CreatedDate")] ContactCard contactCard)
+        public ActionResult Create(ContactCardViewModel contactCardViewModel)
         {
+            ContactCard contactCard = contactCardViewModel.C;
             if (ModelState.IsValid)
             {
                 db.ContactCards.Add(contactCard);
@@ -85,7 +86,7 @@ namespace ContactCards.WebUI.Controllers
             {
                 db.Entry(contactCard).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("~/ContactCard/Details/" + contactCard.Id + "");
             }
             return View(contactCard);
         }

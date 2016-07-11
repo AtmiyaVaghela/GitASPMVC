@@ -26,7 +26,7 @@ namespace ContactCards.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 User u;
-                using (var db = new ConttactCardDBContext())
+                using (var db = new ContactCardDBContext())
                 {
                     u = db.Users
                      .Where(x => x.UserName.Equals(user.UserName))
@@ -40,7 +40,7 @@ namespace ContactCards.WebUI.Controllers
                     user.Role = user.Role.ToUpper();
                     //user.CreatedBy = Convert.ToInt32(Encoding.ASCII.DecodeBase64(Request.Cookies["ContactApp"]["UserId"]));
                     user.CreatedDate = DateTime.Now;
-                    using (var db = new ConttactCardDBContext())
+                    using (var db = new ContactCardDBContext())
                     {
                         db.Users.Add(user);
                         db.SaveChanges();

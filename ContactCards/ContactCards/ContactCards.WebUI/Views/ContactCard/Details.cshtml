@@ -3,10 +3,9 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<!--contact details & notes-->
-
-<div id="contactCard">
+@if (Model != null)
+{
+    <!--contact details & notes-->
 
     <div class="panel panel-default">
         <div class="panel-heading clearfix">
@@ -63,10 +62,10 @@
                 <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.HomeNo)</h4>
             </a>
 
-            <a class="list-group-item" href="mailto:@Model.EmailId">
+            <div class="list-group-item">
                 <label>@Html.DisplayNameFor(model => model.EmailId)</label>
                 <h4 class="list-group-item-heading">@Html.DisplayFor(model => model.EmailId)</h4>
-            </a>
+            </div>
 
             <div class="list-group-item">
                 <label>@Html.DisplayNameFor(model => model.BirthDate)</label>
@@ -140,92 +139,322 @@
 
             <div class="list-group-item">
                 <label>@Html.DisplayNameFor(model => model.Relation)</label>
-                <h4 class="list-group-item-heading" @Html.DisplayFor(model => model.Relation)</h4>
+                <h4 class="list-group-item-heading"> @Html.DisplayFor(model => model.Relation)</h4>
             </div>
-
-            <a class="list-group-item" href="tel://+1 650-555-0055">
-                <label>Phone</label>
-                <h4 class="list-group-item-heading">+1 650-555-0055</h4>
-            </a>
-            <a class="list-group-item" href="mailto:Sofia.Acey@masung.com">
-                <label>Email</label>
-                <h4 class="list-group-item-heading">Sofia.Acey@masung.com</h4>
-            </a>
-        </div>
-        <div class="panel-footer">
-            <small class="pull-left">Built with Bootcards - Base Card</small>
-            <a class="btn btn-link btn-xs pull-right"
-               href="/snippets/base-card-form"
-               data-toggle="modal"
-               data-target="#docsModal">
-                View Source
-            </a>
         </div>
     </div>
-</div>
 
-<!--list of notes-->
-@*<div>
+        <!--list of notes-->
+    @*<div>
 
-        <div class="panel panel-default">
-            <div class="panel-heading clearfix">
-                <h3 class="panel-title pull-left">Notes</h3>
-                <div class="btn-group pull-right">
-                    <a class="btn btn-primary" href="/contacts/VBMJHwcLX3Vx/notes/add"
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title pull-left">Notes</h3>
+                    <div class="btn-group pull-right">
+                        <a class="btn btn-primary" href="/contacts/VBMJHwcLX3Vx/notes/add"
+                           data-toggle="modal"
+                           data-target="#editModal">
+                            <i class="fa fa-plus"></i>
+                            <span>Add</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <a class="list-group-item pjax"
+                       href="/contacts/VBMJHwcLX3Vx/notes/ucw9gtbjq7ls">
+                        <i class="fa fa-2x pull-left fa-check-square-o"></i>
+                        <h4 class="list-group-item-heading">Send tracking Number</h4>
+                        <p class="list-group-item-text">Mon 02 Dec 2013 17:27</p>
+                    </a>
+                    <a class="list-group-item pjax"
+                       href="/contacts/VBMJHwcLX3Vx/notes/1rhen4xigta0w">
+                        <i class="fa fa-2x pull-left fa-file-text-o"></i>
+                        <h4 class="list-group-item-heading">Improved Load Time</h4>
+                        <p class="list-group-item-text">Mon 02 Dec 2013 17:26</p>
+                    </a>
+                    <a class="list-group-item pjax"
+                       href="/contacts/VBMJHwcLX3Vx/notes/1rhen4xigta0z">
+                        <i class="fa fa-2x pull-left fa-paperclip"></i>
+                        <h4 class="list-group-item-heading">Stingray.pdf</h4>
+                        <p class="list-group-item-text">Mon 02 Dec 2013 17:26</p>
+                    </a>
+                    <a class="list-group-item pjax"
+                       href="/contacts/VBMJHwcLX3Vx/notes/uywr1g2fnvuo">
+                        <i class="fa fa-2x pull-left fa-picture-o"></i>
+                        <h4 class="list-group-item-heading">Product image</h4>
+                        <p class="list-group-item-text">Mon 02 Dec 2013 17:26</p>
+                    </a>
+                </div>
+                <div class="panel-footer">
+                    <small class="pull-left">Built with Bootcards - List</small>
+                    <a class="btn btn-link btn-xs pull-right"
+                       href="/snippets/list-card"
                        data-toggle="modal"
-                       data-target="#editModal">
-                        <i class="fa fa-plus"></i>
-                        <span>Add</span>
+                       data-target="#docsModal">
+                        View Source
                     </a>
                 </div>
             </div>
-            <div class="list-group">
-                <a class="list-group-item pjax"
-                   href="/contacts/VBMJHwcLX3Vx/notes/ucw9gtbjq7ls">
-                    <i class="fa fa-2x pull-left fa-check-square-o"></i>
-                    <h4 class="list-group-item-heading">Send tracking Number</h4>
-                    <p class="list-group-item-text">Mon 02 Dec 2013 17:27</p>
-                </a>
-                <a class="list-group-item pjax"
-                   href="/contacts/VBMJHwcLX3Vx/notes/1rhen4xigta0w">
-                    <i class="fa fa-2x pull-left fa-file-text-o"></i>
-                    <h4 class="list-group-item-heading">Improved Load Time</h4>
-                    <p class="list-group-item-text">Mon 02 Dec 2013 17:26</p>
-                </a>
-                <a class="list-group-item pjax"
-                   href="/contacts/VBMJHwcLX3Vx/notes/1rhen4xigta0z">
-                    <i class="fa fa-2x pull-left fa-paperclip"></i>
-                    <h4 class="list-group-item-heading">Stingray.pdf</h4>
-                    <p class="list-group-item-text">Mon 02 Dec 2013 17:26</p>
-                </a>
-                <a class="list-group-item pjax"
-                   href="/contacts/VBMJHwcLX3Vx/notes/uywr1g2fnvuo">
-                    <i class="fa fa-2x pull-left fa-picture-o"></i>
-                    <h4 class="list-group-item-heading">Product image</h4>
-                    <p class="list-group-item-text">Mon 02 Dec 2013 17:26</p>
-                </a>
-            </div>
-            <div class="panel-footer">
-                <small class="pull-left">Built with Bootcards - List</small>
-                <a class="btn btn-link btn-xs pull-right"
-                   href="/snippets/list-card"
-                   data-toggle="modal"
-                   data-target="#docsModal">
-                    View Source
-                </a>
+        </div>*@
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                @using (Html.BeginForm("Edit", "ContactCard", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <div class="modal-header">
+
+                            <div class="btn-group pull-left">
+                                <button class="btn btn-danger" data-dismiss="modal">
+                                    Cancel
+                                </button>
+                            </div>
+
+                            <div class="btn-group pull-right">
+                                <button type="submit" class="btn btn-success">
+                                    Save
+                                </button>
+                            </div>
+                            <h4 class="modal-title">
+                                Edit Contact
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.Id)
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MiddleName, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Town, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.Town, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Town, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Pincode, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.Pincode, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Pincode, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MobileNo, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.HomeNo, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.HomeNo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.HomeNo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.EmailId, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.NirvanTithi, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.NirvanTithi, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.NirvanTithi, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.BloodGroup, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.BloodGroup, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.BloodGroup, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Education, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.Education, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.InterestedIn, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.InterestedIn, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.InterestedIn, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.GurukulSanstha, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.GurukulSanstha, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.GurukulSanstha, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SwaminarayanSampradaay, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.SwaminarayanSampradaay, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.SwaminarayanSampradaay, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RWSanints, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.RWSanints, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.RWSanints, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PoliticalConnections, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.PoliticalConnections, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.PoliticalConnections, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.KnownSaints, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.KnownSaints, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.KnownSaints, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ReligiousPlaces, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.ReligiousPlaces, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ReligiousPlaces, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DevoteeCategory, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.DevoteeCategory, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.DevoteeCategory, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SevaSahyog, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.SevaSahyog, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.SevaSahyog, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="display:none">
+                                @Html.LabelFor(model => model.RId, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.RId, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.RId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Relation, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.Relation, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Relation, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CreatedDate, htmlAttributes: new { @class = "control-label col-xs-4" })
+                                <div class="col-xs-8">
+                                    @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
-    </div>*@
+    </div>
 
-@*<div>
-    <h2>Details</h2>
-
-            <h4>ContactCard</h4>
-            <hr />
-            <dl class="dl-horizontal">
-           </dl>
-        </div>*@
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+}

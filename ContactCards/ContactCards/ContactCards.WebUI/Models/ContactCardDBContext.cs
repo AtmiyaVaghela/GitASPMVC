@@ -6,9 +6,14 @@ using System.Web;
 
 namespace ContactCards.WebUI.Models
 {
-    public class ConttactCardDBContext : DbContext
+    public class ContactCardDBContext : DbContext
     {
+        public ContactCardDBContext() : base("name=DbConnectionString")
+        {
+        }
+
         public DbSet<User> Users { get; set; }
+
         public DbSet<ContactCard> ContactCards { get; set; }
     }
 }
