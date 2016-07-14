@@ -15,13 +15,13 @@ namespace ContactCards.WebUI.Controllers
         private ContactCardDBContext db = new ContactCardDBContext();
 
         [HttpGet]
-        public ActionResult SignIn()
+        public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult SignIn(User user)
+        public ActionResult Login(User user)
         {
             if (user.UserName.Equals("admin") && user.Password.Equals("p"))
             {
@@ -46,6 +46,12 @@ namespace ContactCards.WebUI.Controllers
             return RedirectToAction("Index", "ContactCard");
         }
 
+        public ActionResult Logout()
+        {
+            Response.Cookies["ContactApp"].Expires = DateTime.Now.AddHours(-30);
+            return RedirectToAction("Login");
+        }
+
         private void CreateCookies(User user)
         {
             Response.Cookies["ContactApp"]["UserId"] = Encoding.ASCII.EncodeBase64("0");
@@ -60,7 +66,7 @@ namespace ContactCards.WebUI.Controllers
         public ActionResult SignOut()
         {
             Response.Cookies["ContactApp"].Expires = DateTime.Now.AddHours(-1);
-            return RedirectToAction("SignIn");
+            return RedirectToAction("Login");
         }
     }
 }

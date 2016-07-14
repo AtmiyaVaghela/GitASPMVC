@@ -317,6 +317,7 @@
     <Content Include="Views\ContactCard\Create.cshtml" />
     <Content Include="Views\ContactCard\Edit.cshtml" />
     <Content Include="Views\ContactCard\Delete.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
