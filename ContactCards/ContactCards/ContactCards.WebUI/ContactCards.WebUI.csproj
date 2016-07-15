@@ -269,6 +269,7 @@
     <Content Include="plugins\font-awesome-4.6.3\scss\_stacked.scss" />
     <Content Include="plugins\font-awesome-4.6.3\scss\_variables.scss" />
     <Content Include="images\manifest.json" />
+    <None Include="Properties\PublishProfiles\ContactCard.pubxml" />
     <None Include="scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
@@ -317,6 +318,7 @@
     <Content Include="Views\ContactCard\Create.cshtml" />
     <Content Include="Views\ContactCard\Edit.cshtml" />
     <Content Include="Views\ContactCard\Delete.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

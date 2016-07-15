@@ -47,7 +47,7 @@ namespace ContactCards.WebUI.Concrete.Filters
         {
             if (HttpContext.Current.Request.Cookies["ContactApp"] == null)
             {
-                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Account", action = "SignIn" }));
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Account", action = "Login" }));
             }
             else
             {

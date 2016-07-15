@@ -12,7 +12,7 @@ namespace ContactCards.WebUI.Controllers
 {
     public class UtilityController : Controller
     {
-        //[CAuthorize("ADMIN")]
+        [CAuthorize("ADMIN")]
         public ActionResult CreateUser()
         {
             return View();
@@ -38,7 +38,7 @@ namespace ContactCards.WebUI.Controllers
                     user.Password = Encoding.ASCII.EncodeBase64(user.Password);
                     user.Name = user.Name.ToUpper();
                     user.Role = user.Role.ToUpper();
-                    //user.CreatedBy = Convert.ToInt32(Encoding.ASCII.DecodeBase64(Request.Cookies["ContactApp"]["UserId"]));
+                    user.CreatedBy = Convert.ToInt32(Encoding.ASCII.DecodeBase64(Request.Cookies["ContactApp"]["UserId"]));
                     user.CreatedDate = DateTime.Now;
                     using (var db = new ContactCardDBContext())
                     {
