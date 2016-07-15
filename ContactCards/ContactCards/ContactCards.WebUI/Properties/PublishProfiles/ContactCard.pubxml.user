@@ -10,559 +10,559 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
-      <publishTime>07/11/2016 13:18:53</publishTime>
+      <publishTime>07/15/2016 10:02:34</publishTime>
     </File>
     <File Include="App_Data/Database.mdf">
-      <publishTime>07/12/2016 07:56:26</publishTime>
+      <publishTime>07/15/2016 10:02:48</publishTime>
     </File>
     <File Include="App_Data/Database_log.ldf">
-      <publishTime>07/12/2016 07:56:26</publishTime>
+      <publishTime>07/15/2016 10:02:48</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:37</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
-      <publishTime>07/11/2016 13:18:53</publishTime>
+      <publishTime>07/15/2016 10:02:37</publishTime>
     </File>
     <File Include="bin/ContactCards.WebUI.dll">
-      <publishTime>07/15/2016 09:41:47</publishTime>
+      <publishTime>07/15/2016 11:49:12</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>07/11/2016 13:19:09</publishTime>
+      <publishTime>07/15/2016 10:02:37</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>07/11/2016 13:19:09</publishTime>
+      <publishTime>07/15/2016 10:02:37</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
-      <publishTime>07/11/2016 13:19:10</publishTime>
+      <publishTime>07/15/2016 10:02:37</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.DependencyCollector.dll">
-      <publishTime>07/11/2016 13:19:10</publishTime>
+      <publishTime>07/15/2016 10:02:37</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
-      <publishTime>07/11/2016 13:19:10</publishTime>
+      <publishTime>07/15/2016 10:02:37</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
-      <publishTime>07/11/2016 13:19:10</publishTime>
+      <publishTime>07/15/2016 10:02:37</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Web.dll">
-      <publishTime>07/11/2016 13:19:10</publishTime>
+      <publishTime>07/15/2016 10:02:37</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.WindowsServer.dll">
-      <publishTime>07/11/2016 13:19:10</publishTime>
+      <publishTime>07/15/2016 10:02:37</publishTime>
     </File>
     <File Include="bin/Microsoft.ApplicationInsights.dll">
-      <publishTime>07/11/2016 13:19:09</publishTime>
+      <publishTime>07/15/2016 10:02:37</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
-      <publishTime>07/11/2016 13:19:11</publishTime>
+      <publishTime>07/15/2016 10:02:37</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>07/11/2016 13:19:14</publishTime>
+      <publishTime>07/15/2016 10:02:38</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
-      <publishTime>07/11/2016 13:19:13</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
-      <publishTime>07/11/2016 13:19:11</publishTime>
+      <publishTime>07/15/2016 10:02:38</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
-      <publishTime>07/11/2016 13:19:12</publishTime>
+      <publishTime>07/15/2016 10:02:39</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
-      <publishTime>07/11/2016 13:19:13</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
-      <publishTime>07/11/2016 13:19:13</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
-      <publishTime>07/11/2016 13:19:11</publishTime>
+      <publishTime>07/15/2016 10:02:38</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
-      <publishTime>07/11/2016 13:19:13</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="bin/roslyn/System.Collections.Immutable.dll">
-      <publishTime>07/11/2016 13:19:13</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="bin/roslyn/System.Reflection.Metadata.dll">
-      <publishTime>07/11/2016 13:19:13</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe">
-      <publishTime>07/11/2016 13:19:13</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe">
-      <publishTime>07/11/2016 13:19:13</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
-      <publishTime>07/11/2016 13:19:13</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>07/11/2016 13:19:11</publishTime>
+      <publishTime>07/15/2016 10:02:38</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>07/11/2016 13:19:10</publishTime>
+      <publishTime>07/15/2016 10:02:38</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>07/11/2016 13:19:10</publishTime>
+      <publishTime>07/15/2016 10:02:38</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>07/11/2016 13:19:10</publishTime>
+      <publishTime>07/15/2016 10:02:38</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.Deployment.dll">
-      <publishTime>07/11/2016 13:19:11</publishTime>
+      <publishTime>07/15/2016 10:02:38</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.dll">
-      <publishTime>07/11/2016 13:19:11</publishTime>
+      <publishTime>07/15/2016 10:02:38</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.Razor.dll">
-      <publishTime>07/11/2016 13:19:11</publishTime>
+      <publishTime>07/15/2016 10:02:38</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>07/11/2016 13:19:15</publishTime>
+      <publishTime>07/15/2016 10:02:38</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
-      <publishTime>07/11/2016 13:18:53</publishTime>
+      <publishTime>07/15/2016 10:02:34</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css.map">
-      <publishTime>07/11/2016 13:18:53</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.min.css">
-      <publishTime>07/11/2016 13:18:53</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.min.css.map">
-      <publishTime>07/11/2016 13:18:53</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>07/11/2016 13:18:53</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Content/bootstrap.css.map">
-      <publishTime>07/11/2016 13:18:53</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>07/11/2016 13:18:53</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css.map">
-      <publishTime>07/11/2016 13:18:53</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.svg">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>07/11/2016 13:18:53</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="HtmlPage1.html">
-      <publishTime>07/12/2016 07:56:27</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="images/android-icon-144x144.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/android-icon-192x192.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/android-icon-36x36.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/android-icon-48x48.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/android-icon-72x72.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/android-icon-96x96.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/apple-icon-114x114.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/apple-icon-120x120.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/apple-icon-144x144.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/apple-icon-152x152.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/apple-icon-180x180.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/apple-icon-57x57.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/apple-icon-60x60.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/apple-icon-72x72.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/apple-icon-76x76.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/apple-icon-precomposed.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/apple-icon.png">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/bc-android-contact-details-framed.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/bc-android-contacts-framed.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/bc-android-dashboard-framed.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/bc-ipad-contacts-framed.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/bc-ipad-dashboard.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/bootcards-icon-rounded-120x120.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/browserconfig.xml">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-base-android.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-base-desktop.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-base-ios.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-chart-android.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-chart-desktop.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-chart-ios.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-file-android.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-file-desktop.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-file-ios.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-form-ios.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-media-android.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-media-desktop.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-media-ios.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-summary-android.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-summary-desktop.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/card-summary-ios.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/favicon-16x16.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/favicon-32x32.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/favicon-96x96.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/favicon.ico">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/Joseph Barish.jpg">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/manifest.json">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/ms-icon-144x144.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/ms-icon-150x150.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/ms-icon-310x310.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/ms-icon-70x70.png">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/Sarah Benson.jpg">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="images/Sofia Acey.jpg">
-      <publishTime>07/11/2016 13:18:57</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/css/bootcards-android.css">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/css/bootcards-android.css.map">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/css/bootcards-android.min.css">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/css/bootcards-desktop.css">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/css/bootcards-desktop.css.map">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/css/bootcards-desktop.min.css">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/css/bootcards-ios.css">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/css/bootcards-ios.css.map">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/css/bootcards-ios.min.css">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/fonts/icomoon.eot">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/fonts/icomoon.svg">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/fonts/icomoon.ttf">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/fonts/icomoon.woff">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/js/bootcards.js">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/Bootcards/js/bootcards.min.js">
-      <publishTime>07/11/2016 13:18:58</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/fastclick/fastclick.js">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/fastclick/fastclick.min.js">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/css/font-awesome.css">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/css/font-awesome.min.css">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/fonts/fontawesome-webfont.eot">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/fonts/fontawesome-webfont.svg">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/fonts/fontawesome-webfont.ttf">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/fonts/fontawesome-webfont.woff">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/fonts/fontawesome-webfont.woff2">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/fonts/FontAwesome.otf">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/HELP-US-OUT.txt">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/animated.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/bordered-pulled.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/core.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/fixed-width.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/font-awesome.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/icons.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:40</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/larger.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/list.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/mixins.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/path.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/rotated-flipped.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/screen-reader.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/stacked.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/less/variables.less">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/font-awesome.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/_animated.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/_bordered-pulled.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/_core.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/_fixed-width.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/_icons.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/_larger.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/_list.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/_mixins.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/_path.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/_rotated-flipped.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/_screen-reader.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/_stacked.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="plugins/font-awesome-4.6.3/scss/_variables.scss">
-      <publishTime>07/11/2016 13:19:05</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/ai.0.22.9-build00167.js">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/ai.0.22.9-build00167.min.js">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/bootstrap.js">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/bootstrap.min.js">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/jquery-1.9.1.js">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/jquery-1.9.1.min.js">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/jquery-1.9.1.min.map">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/jquery.validate.js">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/jquery.validate.min.js">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/jquery.validate.unobtrusive.bootstrap.js">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/jquery.validate.unobtrusive.bootstrap.min.js">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/jquery.validate.unobtrusive.bootstrap.min.js.map">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/jquery.validate.unobtrusive.js">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>07/11/2016 13:19:08</publishTime>
+      <publishTime>07/15/2016 10:02:41</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>07/15/2016 09:32:53</publishTime>
+      <publishTime>07/15/2016 12:04:10</publishTime>
     </File>
     <File Include="Views/Account/SignIn.cshtml">
-      <publishTime>07/12/2016 07:56:27</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Views/ContactCard/Create.cshtml">
-      <publishTime>07/12/2016 07:56:27</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Views/ContactCard/Delete.cshtml">
-      <publishTime>07/12/2016 07:56:27</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Views/ContactCard/Details.cshtml">
-      <publishTime>07/12/2016 07:56:27</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Views/ContactCard/Edit.cshtml">
-      <publishTime>07/12/2016 07:56:27</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Views/ContactCard/Index.cshtml">
-      <publishTime>07/12/2016 07:56:27</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/15/2016 09:33:55</publishTime>
+      <publishTime>07/15/2016 10:02:48</publishTime>
     </File>
     <File Include="Views/Utility/CreateUser.cshtml">
-      <publishTime>07/12/2016 07:56:27</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Views/web.config">
-      <publishTime>07/11/2016 13:18:53</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>07/11/2016 13:18:53</publishTime>
+      <publishTime>07/15/2016 10:02:36</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/12/2016 11:39:58</publishTime>
+      <publishTime>07/15/2016 11:49:15</publishTime>
     </File>
   </ItemGroup>
 </Project>
