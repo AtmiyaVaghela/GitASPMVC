@@ -4,6 +4,27 @@
     ViewBag.Title = "CreateUser";
 }
 
+<div class="panel panel-default">
+
+    <div class="panel-heading clearfix">
+        <h3 class="panel-title pull-left">Create New User</h3>        
+
+        <div class="list-group">
+
+            <div class="list-group-item">
+                <i class="fa fa-2x fa-building-o pull-left"></i>
+                <label>Name</label>
+                <h4 class="list-group-item-heading">Value</h4>
+            </div>
+
+            <div class="list-group-item">
+                <label>Type</label>
+                <h4 class="list-group-item-heading">Value</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
 <h2>CreateUser</h2>
 <div class="container body-content">
     @using (Html.BeginForm())
@@ -15,13 +36,13 @@
             <div class="form-group">
                 <div class="col-md-10">
                     @if (TempData["MSG"] != null)
-                {
+                    {
                         <div class="alert alert-success" role="alert">
                             @TempData["MSG"]
                         </div>
                     }
                     @if (TempData["ERROR"] != null)
-                {
+                    {
                         <div class="alert alert-danger" role="alert">
                             @TempData["ERROR"]
                         </div>
